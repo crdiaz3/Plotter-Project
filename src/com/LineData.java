@@ -6,7 +6,7 @@ import java.util.Vector;
 
 public class LineData implements Cloneable{
 
-		public Vector lineDatas=new Vector();//This shit is fucked!!!
+		public Vector lineDatas=new Vector();
 		public boolean isSelected=false;
 
 		public int size(){
