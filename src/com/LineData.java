@@ -6,7 +6,7 @@ import java.util.Vector;
 
 public class LineData implements Cloneable{
 
-		public Vector lineDatas=new Vector();
+		public Vector<Integer> lineDatas=new Vector<Integer>();	//changed to <Integer>
 		public boolean isSelected=false;
 
 		public int size(){
@@ -19,7 +19,7 @@ public class LineData implements Cloneable{
 		}
 
 		public int getIndex(int i){
-			return ((Integer)lineDatas.elementAt(i)).intValue();
+			return (lineDatas.elementAt(i)).intValue();	//removed Integer cast
 		}
 		
 		
