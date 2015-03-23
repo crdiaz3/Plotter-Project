@@ -1,7 +1,7 @@
 package com;
 
 
-import java.util.StringTokenizer;
+//import java.util.StringTokenizer;	//commented out useless import
 import java.util.Vector;
 
 public class LineData implements Cloneable{
@@ -87,7 +87,7 @@ public class LineData implements Cloneable{
 			return -1;
 		}
 		
-		public static Polygon3D buildPolygon(LineData ld,Vector points) {
+		public static Polygon3D buildPolygon(LineData ld,Vector<Point3D> points) {	//added <Point3D>
 
 
 
@@ -104,7 +104,7 @@ public class LineData implements Cloneable{
 
 				int num=ld.getIndex(i);
 
-				Point3D p=(Point3D) points.elementAt(num);
+				Point3D p= points.elementAt(num);	//removed cast
 
 				//real coordinates
 				cxr[i]=(int)(p.x);

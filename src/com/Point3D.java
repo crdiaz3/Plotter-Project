@@ -361,7 +361,7 @@ public class Point3D {
 		
 		double xx=this.x;
 		double yy=this.y;
-		double zz=this.z;
+		//double zz=this.z;		//commented out useless declaration
 		
 		this.x=x0+(xx-x0)*cos-(yy-y0)*sin;
 		this.y=y0+(yy-y0)*cos+(xx-x0)*sin;

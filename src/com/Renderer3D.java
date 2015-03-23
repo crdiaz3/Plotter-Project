@@ -3,8 +3,8 @@ package com;
 
 
 import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.event.ActionEvent;
+//import java.awt.Graphics2D;	/commented out 2 uesless imports
+//import java.awt.event.ActionEvent;
 import java.awt.geom.Line2D;
 import java.awt.image.BufferedImage;
 import java.io.PrintWriter;
@@ -551,9 +551,9 @@ public class Renderer3D {
 		return newNormal.calculateVersor();
 	}
 	
-	public void normalsCalculus(Vector points, Vector<LineData> polygonData) {
+	public void normalsCalculus(Vector<Point3D> points, Vector<LineData> polygonData) {	//added <Point3D>
 
-		Hashtable vnormals=new Hashtable();
+		Hashtable<String,Vector<LineData>> vnormals=new Hashtable<String,Vector<LineData>>();	//added 2 <String,Vector<LineData>>
 		
 		for(int l=0;l<polygonData.size();l++){
 
@@ -563,9 +563,9 @@ public class Renderer3D {
 
 				int index=ld.getIndex(i);
 
-				Vector lineDataNormals=(Vector) vnormals.get(""+index);
+				Vector<LineData> lineDataNormals= vnormals.get(""+index);	//added 2 <LineData> , removed cast
 				if(lineDataNormals==null){
-					lineDataNormals=new Vector();
+					lineDataNormals=new Vector<LineData>();	//added <LineData>
 					vnormals.put(""+index,lineDataNormals);
 				}
 				lineDataNormals.add(ld);
@@ -575,13 +575,13 @@ public class Renderer3D {
 
 		//mix the normal
 
-		Enumeration itera = vnormals.keys();
+		Enumeration<String> itera = vnormals.keys();	//added <String>
 
 		while(itera.hasMoreElements()){
 
-			String key=(String) itera.nextElement();
+			String key= itera.nextElement();	//removed cast
 			int index=Integer.parseInt(key);
-			Vector lineDataNormals=(Vector) vnormals.get(""+index);
+			Vector<LineData> lineDataNormals=(Vector<LineData>) vnormals.get(""+index);	//added 2 <LineData> , beware unchecked
 
 			double x=0;
 			double y=0;
@@ -597,7 +597,7 @@ public class Renderer3D {
 				z+=ldNormal.z;
 
 			}
-			((Point3D)points.elementAt(index)).setNormal(new Point3D(x/lineDataNormals.size()
+			(points.elementAt(index)).setNormal(new Point3D(x/lineDataNormals.size()	//remove useless cast
 					,y/lineDataNormals.size(),
 					z/lineDataNormals.size())
 			);
@@ -607,14 +607,14 @@ public class Renderer3D {
 	}
 	
 	private static Point3D getNormal(int position, LineData ld,
-			Vector points) {
+			Vector<Point3D> points) {	//added <Point3D>
 
 		int n=ld.size();
 
 
-		Point3D p0=(Point3D) points.elementAt(ld.getIndex((n+position-1)%n));
-		Point3D p1=(Point3D) points.elementAt(ld.getIndex(position));
-		Point3D p2=(Point3D) points.elementAt(ld.getIndex((1+position)%n));
+		Point3D p0= points.elementAt(ld.getIndex((n+position-1)%n));	//removed 3 casts in 3 lines
+		Point3D p1= points.elementAt(ld.getIndex(position));
+		Point3D p2= points.elementAt(ld.getIndex((1+position)%n));
 
 		Point3D normal=Point3D.calculateCrossProduct(p1.substract(p0),p2.substract(p1));
 

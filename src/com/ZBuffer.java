@@ -1,8 +1,8 @@
 package com;
 
 import java.awt.Color;
-import java.awt.Point;
-import java.awt.image.BufferedImage;
+//import java.awt.Point;	//commented 2 useless imports
+//import java.awt.image.BufferedImage;
 
 public class ZBuffer{
 

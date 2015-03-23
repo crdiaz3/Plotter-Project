@@ -3,9 +3,9 @@ package com;
 import java.awt.Point;
 import java.awt.Polygon;
 import java.awt.geom.Area;
-import java.awt.geom.Line2D;
+//import java.awt.geom.Line2D;	commented out useless import
 import java.awt.geom.PathIterator;
-import java.util.Date;
+//import java.util.Date;	//commented out useless import
 import java.util.Vector;
 
 
@@ -44,7 +44,7 @@ public class Polygon3D extends Polygon{
 	}
 
 
-	public Polygon3D(Vector points) {
+	public Polygon3D(Vector<Point3D> points) {	//added <Point3D>
 
 		this.npoints=points.size();
 		this.xpoints = new int[this.npoints];
@@ -55,7 +55,7 @@ public class Polygon3D extends Polygon{
 
 		for(int i=0;i<this.npoints;i++){
 
-			Point3D p=(Point3D) points.elementAt(i);
+			Point3D p= points.elementAt(i);	//removed useless cast
 
 			this.xpoints[i]=(int) p.x;
 			this.ypoints[i]=(int) p.y;
@@ -288,7 +288,7 @@ public class Polygon3D extends Polygon{
 
 			int x2=0;
 			int y2=0;
-			int z2=0;
+			int z2=0;	//eclipse is lying to me, this value is used
 
 			if(i==p_out.npoints-1) {
 
@@ -351,7 +351,7 @@ public class Polygon3D extends Polygon{
 
 
 		
-        Vector newPoints=new Vector();
+        Vector<Point3D> newPoints=new Vector<Point3D>();	//added <Point3D>
 
 
 		for(int i=0;i<p_old.npoints;i++){
@@ -400,7 +400,7 @@ public class Polygon3D extends Polygon{
 		
 		for(int j=0;j<new_size;j++){
 			
-			Point3D p=(Point3D) newPoints.elementAt(j);
+			Point3D p= newPoints.elementAt(j);	//removed useless cast
 			
 			p_new.xpoints[j]=(int) p.x;
 			p_new.ypoints[j]=(int) p.y;
@@ -415,7 +415,7 @@ public class Polygon3D extends Polygon{
 
 
 		
-        Vector newPoints=new Vector();
+        Vector<Point3D> newPoints=new Vector<Point3D>();	//added <Point3D>
 
 
 		for(int i=0;i<p_old.npoints;i++){
@@ -463,7 +463,7 @@ public class Polygon3D extends Polygon{
 		
 		for(int j=0;j<new_size;j++){
 						
-			Point3D p=(Point3D) newPoints.elementAt(j);
+			Point3D p= newPoints.elementAt(j);	//removed useless cast
 			
 			p_new.xpoints[j]=(int) p.x;
 			p_new.ypoints[j]=(int) p.y;
@@ -476,8 +476,8 @@ public class Polygon3D extends Polygon{
 
 	private static Point insersect(Point p1, Point p2, int x2, int x1, int y2, int y1) {
 
-		Line2D.Double line1=new Line2D.Double(x2,y2,x1,y1);
-		Line2D.Double line2=new Line2D.Double(p2.x,p2.y,p1.x,p1.y);
+		//Line2D.Double line1=new Line2D.Double(x2,y2,x1,y1);	//commented out 2 lines
+		//Line2D.Double line2=new Line2D.Double(p2.x,p2.y,p1.x,p1.y);	
 
 		//if(!line1.intersectsLine(line2))
 		//	return null;
@@ -651,11 +651,11 @@ public class Polygon3D extends Polygon{
 
 		Polygon3D p2=new Polygon3D(3,cx1,cy1,cz1);
 
-		//System.out.println(p2.hasInsidePoint(20,0));
-		//System.out.println(p2.hasInsidePoint(30,40));
-		//System.out.println(p2.hasInsidePoint(40,10));
+		System.out.println(p2.hasInsidePoint(20,0));	//uncommented 6 lines
+		System.out.println(p2.hasInsidePoint(30,40));
+		System.out.println(p2.hasInsidePoint(40,10));
 
-		/*Area out=new Area(p1); 
+		Area out=new Area(p1); 
 		Area in=new Area(p2);
 
 
@@ -663,10 +663,10 @@ public class Polygon3D extends Polygon{
 
 		System.out.println(p3);
 		out.intersect(in);
-		Polygon3D p_res=clipPolygon3D(p1,p2);*/
-		System.out.println(p2);
-		Polygon3D p3=clipPolygon3DInY(p2,0);
-		System.out.println(p3);
+		Polygon3D p_res=clipPolygon3D(p1,p2);
+		System.out.println(p_res);	//changed to p_res
+		Polygon3D p4=clipPolygon3DInY(p2,0);	//changed to p4
+		System.out.println(p4);	//changed to p4
 	}
 	
 	
