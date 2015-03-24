@@ -119,7 +119,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 		setLocation(20,20);
 		setTitle(VERSION);
 		setSize(LEFTBORDER+WIDTH+RIGHTBORDER,UPBORDER+HEIGHT+BUTTOMBORDER);
-		Container container = getContentPane();
+		//Container container = getContentPane();	commented out unused container
 		setLayout(null);
 		center.setBounds(LEFTBORDER,UPBORDER,WIDTH,HEIGHT);
 		center.addMouseListener(this);
@@ -847,7 +847,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 			
 		}
 		
-		ExportDataPanel edp=new ExportDataPanel(fun);
+		ExportDataPanel edp=new ExportDataPanel(fun);	//I think the constructor does work
 		
 		
 	}
@@ -859,7 +859,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 	 */
 	private void selectColors() {
 		
-		Colorpanel cp=new Colorpanel(p);
+		Colorpanel cp=new Colorpanel(p);	//I believe the constructor does things
 		setColors(p);
 		
 		

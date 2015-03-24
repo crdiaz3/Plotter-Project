@@ -2,12 +2,12 @@ package com.maths;
 
 import java.text.NumberFormat;
 import java.util.Locale;
-import java.util.StringTokenizer;
+//import java.util.StringTokenizer;	//commented out useess imports
 import java.util.Vector;
 
-import javax.swing.tree.TreeNode;
+//import javax.swing.tree.TreeNode;
 
-import org.w3c.dom.Node;
+//import org.w3c.dom.Node;
 
 
 public class MathTree {
@@ -265,7 +265,7 @@ public class MathTree {
 
 
 			node.setLabel(SUM_LABEL);
-			Vector tokens=decomposeBySymbol(value,SUM_LABEL);
+			Vector<String> tokens=decomposeBySymbol(value,SUM_LABEL);	//added <String>
 			appendChildren(node,tokens);
 
 
@@ -274,28 +274,28 @@ public class MathTree {
 
 
 			node.setLabel(SUBTRACTION_LABEL);
-			Vector tokens=decomposeBySymbol(value,SUBTRACTION_LABEL);
+			Vector<String> tokens=decomposeBySymbol(value,SUBTRACTION_LABEL);	//added <String>
 			appendChildren(node,tokens);
 		}
 		else if(value.indexOf(MULTIPLICATION_LABEL)>=0 && canDecomposeBySymbol(value,MULTIPLICATION_LABEL)  ){
 
 			node.setLabel(MULTIPLICATION_LABEL);
 
-			Vector tokens=decomposeBySymbol(value,MULTIPLICATION_LABEL);
+			Vector<String> tokens=decomposeBySymbol(value,MULTIPLICATION_LABEL);	//added <String>
 			appendChildren(node,tokens);
 		}
 		else if(value.indexOf(DIVISION_LABEL)>=0 && canDecomposeBySymbol(value,DIVISION_LABEL)  ){
 
 			node.setLabel(DIVISION_LABEL);
 
-			Vector tokens=decomposeBySymbol(value,DIVISION_LABEL);
+			Vector<String> tokens=decomposeBySymbol(value,DIVISION_LABEL);	//added <String>
 			appendChildren(node,tokens);
 		}
 		else if(value.indexOf(POWER_LABEL)>=0 && canDecomposeBySymbol(value,POWER_LABEL)  ){
 
 			node.setLabel(POWER_LABEL);
 
-			Vector tokens=decomposeBySymbol(value,POWER_LABEL);
+			Vector<String> tokens=decomposeBySymbol(value,POWER_LABEL);	//added <String>
 			appendChildren(node,tokens);
 		}
 	}
@@ -348,7 +348,7 @@ public class MathTree {
 
 	}
 
-	public void appendChildren(TNode node, Vector tokens) {
+	public void appendChildren(TNode node, Vector<String> tokens) {	//added <String>
 
 		for (int i = 0; i < tokens.size(); i++) {
 
@@ -400,8 +400,8 @@ public class MathTree {
 		return false;
 	}
 
-	public Vector decomposeBySymbol(String value, String symbol) {
-		Vector tokens=new Vector();
+	public Vector<String> decomposeBySymbol(String value, String symbol) {	//added <String>
+		Vector<String> tokens=new Vector<String>();	//added 2 <String>
 
 		int depth=0;
 		String current="";
@@ -442,7 +442,7 @@ public class MathTree {
 
 		if(root.getChildCount()==0)
 		{
-			Vector nodes=new Vector();
+			Vector<TNode> nodes=new Vector<TNode>();	//added <TNode>
 
 			nodes.add(root);
 			TNode currentNode=root;
@@ -456,7 +456,7 @@ public class MathTree {
 			System.out.println();
 			for (int i = nodes.size()-1; i >=0; i--) {
 
-				TNode member=(TNode) nodes.elementAt(i);
+				TNode member= nodes.elementAt(i);	//removed cast
 				System.out.print("("+member.getLabel()+")"+member.toString());
 				if(i>0)
 					System.out.print("->");

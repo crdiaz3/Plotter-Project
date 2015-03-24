@@ -1,19 +1,19 @@
 package com.maths;
 
-import java.awt.Color;
+//import java.awt.Color;	//commented out useless imports
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.text.DecimalFormat;
-import java.text.NumberFormat;
-import java.util.Date;
-import java.util.Locale;
+//import java.text.NumberFormat;
+//import java.util.Date;
+//import java.util.Locale;
 import java.util.Vector;
 
 import com.LineData;
 import com.Point3D;
 import com.Polygon3D;
 import com.Renderer3D;
-import com.ZBuffer;
+//import com.ZBuffer;
 import com.main.Visualizer;
 
 
@@ -149,8 +149,8 @@ public class Calculator extends Renderer3D{
 		//		deltay=deltax=i*1.0/n;
 		
 			
-		Vector points=new Vector();
-		Vector lines=new Vector();
+		Vector<Point3D> points=new Vector<Point3D>();	//added 2 <Point3D>
+		Vector<LineData> lines=new Vector<LineData>();	//added 2 <Point3D>
 		points.setSize(nx*ny);
 		
 		for(int k=0;k<nx;k++)
@@ -200,7 +200,7 @@ public class Calculator extends Renderer3D{
 		
 		for(int index=0;index<lines.size();index++){
 			
-			LineData ld=(LineData) lines.elementAt(index);
+			LineData ld= lines.elementAt(index);	//removed cast
 			Polygon3D p3d=LineData.buildPolygon(ld,points);
 			
 			decomposeClippedPolygonIntoZBuffer(p3d, Visualizer.LINE_3D_COLOR, zbuffer,null,null,null);
