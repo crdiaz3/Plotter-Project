@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
+//import java.io.OutputStream;	//commented out useless import
 import java.util.Properties;
 
 import javax.swing.JButton;

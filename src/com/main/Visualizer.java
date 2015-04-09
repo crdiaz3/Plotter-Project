@@ -1,7 +1,7 @@
 package com.main;
 
 import java.awt.Color;
-import java.awt.Container;
+//import java.awt.Container;	//commented out useless import
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;

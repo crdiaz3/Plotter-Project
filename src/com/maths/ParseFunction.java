@@ -1,5 +1,5 @@
 package com.maths;
-import java.io.IOException;
+//import java.io.IOException;	//commented out useless import
 import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Vector;
