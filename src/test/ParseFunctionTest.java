@@ -8,6 +8,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import com.maths.ParseFunction;
+
 public class ParseFunctionTest {
 
 	@BeforeClass
@@ -20,6 +22,8 @@ public class ParseFunctionTest {
 
 	@Before
 	public void setUp() throws Exception {
+		ParseFunction pf = new ParseFunction();
+		
 	}
 
 	@After
