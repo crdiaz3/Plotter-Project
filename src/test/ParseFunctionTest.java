@@ -11,6 +11,8 @@ import org.junit.Test;
 import com.maths.ParseFunction;
 
 public class ParseFunctionTest {
+	
+	ParseFunction pf;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -22,7 +24,7 @@ public class ParseFunctionTest {
 
 	@Before
 	public void setUp() throws Exception {
-		ParseFunction pf = new ParseFunction();
+		pf = new ParseFunction();
 		
 	}
 
@@ -32,12 +34,14 @@ public class ParseFunctionTest {
 
 	@Test
 	public void testParseFunction() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testFormatVal() {
-		fail("Not yet implemented");
+		pf.setFunction("(12+6)/3 - 2*8");
+		assertEquals(-10,pf.parseFunction(),0.0);
+		pf.setFunction("sin(3.14)+cos(0)*tan((3.14/4))");
+		assertEquals(1.0,pf.parseFunction(),0.009);
+		//System.out.println(pf.getFunction()+"\n"+pf.recordedFunctions.toString());
+		pf.setFunction("2/0");
+		assertEquals(0,pf.parseFunction(),0.0);
+		
 	}
 
 }
