@@ -45,8 +45,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 	public static int CARTESIAN2D_STATE=0;
 	public static int CARTESIAN3D_STATE=2;
 	public static int POLAR2D_STATE=1;
-	public static int VISUALIZATION_STATE=CARTESIAN2D_STATE;
-	//public static int VISUALIZATION_STATE=POLAR2D_STATE;
+	public static int VISUALIZATION_STATE= 0;//changed this to 0
 	
 	String VERSION="Math graphics 2.0.1 ";
 	
@@ -58,9 +57,9 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 	JButton less=null;
 	JButton calculateIntegral=null;
 	
-	//size of the diplay panel
-	public static int HEIGHT=500;
-	public static int WIDTH=800;
+	//size of the display panel
+	public static int HEIGHT = 500;
+	public static int WIDTH = 800;
 	private Calculator calc;
 	
 	public static int BUTTOMBORDER=100;
@@ -317,7 +316,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 		
 		displayedFunction=new FunctionTextField();
 		displayedFunction.addKeyListener(this);
-		//displayedFunction.setEditable(false);
+
 		displayedFunction.setBounds(140,5,400,20);
 		displayedFunction.addFocusListener(this);
 		
@@ -344,7 +343,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 			
 			displayedFunction=new FunctionTextField();
 			displayedFunction.addKeyListener(this);
-			//displayedFunction.setEditable(false);
+
 			displayedFunction.setBounds(170,5,400,20);
 			displayedFunction.addFocusListener(this);
 			up.add(displayedFunction);
@@ -371,7 +370,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 			
 			displayedFunction=new FunctionTextField();
 			displayedFunction.addKeyListener(this);
-			//displayedFunction.setEditable(false);
+
 			displayedFunction.setBounds(160,5,400,20);
 			displayedFunction.addFocusListener(this);
 			
@@ -401,7 +400,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 			
 			displayedA=new DigitTextField();
 			displayedA.addKeyListener(this);
-			//displayedA.setEditable(false);
+
 			displayedA.setBounds(35,90,70,20);
 			right.add(displayedA);
 			
@@ -412,7 +411,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 			
 			displayedB=new DigitTextField();
 			displayedB.addKeyListener(this);
-			//displayedB.setEditable(false);
+
 			displayedB.setBounds(35,120,70,20);
 			right.add(displayedB);
 					
@@ -425,7 +424,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 			
 			displayedA2=new DigitTextField();
 			displayedA2.addKeyListener(this);
-			//displayedA.setEditable(false);
+
 			displayedA2.setBounds(35,150,70,20);
 			right.add(displayedA2);
 			
@@ -435,7 +434,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 
 			displayedB2=new DigitTextField();
 			displayedB2.addKeyListener(this);
-			//displayedB.setEditable(false);
+
 			displayedB2.setBounds(35,180,70,20);
 			right.add(displayedB2);
 					
@@ -464,7 +463,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 		
 		displayedA=new DigitTextField();
 		displayedA.addKeyListener(this);
-		//displayedA.setEditable(false);
+
 		displayedA.setBounds(35,90,70,20);
 		right.add(displayedA);
 		
@@ -475,7 +474,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 		
 		displayedB=new DigitTextField();
 		displayedB.addKeyListener(this);
-		//displayedB.setEditable(false);
+
 		displayedB.setBounds(35,120,70,20);
 		right.add(displayedB);
 		
@@ -514,7 +513,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 			
 			displayedA=new DigitTextField();
 			displayedA.addKeyListener(this);
-			//displayedA.setEditable(false);
+
 			displayedA.setBounds(50,90,60,20);
 			right.add(displayedA);
 		
@@ -525,7 +524,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 			
 			displayedB=new DigitTextField();
 			displayedB.addKeyListener(this);
-			//displayedB.setEditable(false);
+
 			displayedB.setBounds(50,120,60,20);
 			right.add(displayedB);
 				
@@ -786,17 +785,6 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 		
 	}
 
-    
-
-
-
-
-
-
-
-
-
-
 	private void saveImage() {
 		
 		
@@ -847,7 +835,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 			
 		}
 		
-		ExportDataPanel edp=new ExportDataPanel(fun);	//I think the constructor does work
+		ExportDataPanel edp=new ExportDataPanel(fun);	//I think the constructor does work. It makes the Export data panel.
 		
 		
 	}
@@ -859,7 +847,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 	 */
 	private void selectColors() {
 		
-		Colorpanel cp=new Colorpanel(p);	//I believe the constructor does things
+		Colorpanel cp=new Colorpanel(p);	//I believe the constructor does things. It creates the panel used to change colors.
 		setColors(p);
 		
 		
@@ -1068,7 +1056,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 	private void calculateIntegral() {
 		
 		readRange();
-		Integralpanel ip=new Integralpanel(calc);
+		Integralpanel ip=new Integralpanel(calc);//builds the integral panel.
 		
 	}
 
@@ -1107,7 +1095,10 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 		
 		Point point = arg0.getPoint();
 		movetToCenter(point.x,point.y);
-		/*int BORDER_LIMIT=50;
+		
+		//IGNORE BELOW SECTION
+		
+		/**int BORDER_LIMIT=50;
 		
 		Point point = arg0.getPoint();	
 		if(point.y<BORDER_LIMIT) up(-1);
@@ -1136,6 +1127,8 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 		
 		 xPressed = arg0.getX();
 	     yPressed = arg0.getY();
+	     
+	     
 	}
 
 
@@ -1144,8 +1137,9 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 		
 		 int x = arg0.getX();
 	     int y = arg0.getY();
-	     if(x-xPressed!=0 || -y+yPressed!=0 ){
-		     calc.drag(x-xPressed,-y+yPressed);
+	     if(x - xPressed != 0 || -y + yPressed != 0 )
+	     {
+		     calc.drag(x - xPressed,-y + yPressed);
 		     draw();
 	     }
 	}
@@ -1153,8 +1147,10 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 
    public void mouseWheelMoved(MouseWheelEvent arg0) {
 		int pix=arg0.getUnitsToScroll();
-		if(pix>0) up(-1);
-		else up(+1);
+		if(pix > 0)
+			up(-1);
+		else
+			up(+1);
 	}
 
 
@@ -1170,7 +1166,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 		if(VISUALIZATION_STATE==CARTESIAN2D_STATE || VISUALIZATION_STATE==POLAR2D_STATE )
 		   screenPoint.setText(calc.invertX((int)p.getX())+" ; "+calc.invertY((int)p.getY(),HEIGHT));
 		else
-			screenPoint.setText("");	
+			screenPoint.setText("");
 	}
 
 
@@ -1182,7 +1178,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 	public void focusGained(FocusEvent arg0) {
 		
 		
-		Object obj = arg0.getSource();
+		arg0.getSource();//REMOVED UNUSED VARIABLE
 		
 	}
 
@@ -1194,7 +1190,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 	@Override
 	public void focusLost(FocusEvent arg0) {
 		
-		Object obj = arg0.getSource();
+		arg0.getSource();//REMOVED UNUSED VARIABLE
 
 		
 	}

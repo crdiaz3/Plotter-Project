@@ -17,7 +17,8 @@ import javax.swing.JTextField;
 
 
 
-public class Colorpanel extends JDialog implements ActionListener{
+public class Colorpanel extends JDialog implements ActionListener
+{
 
 	
 	private JPanel pan;
@@ -28,7 +29,8 @@ public class Colorpanel extends JDialog implements ActionListener{
 	private Component THIS;
 	
 
-	public Colorpanel(Properties p){
+	public Colorpanel(Properties p)
+	{
 		
 		init();
 		
@@ -97,7 +99,8 @@ public class Colorpanel extends JDialog implements ActionListener{
 	public void actionPerformed(ActionEvent arg0) {
 	 Object o=arg0.getSource();
 	 
-	 if(o==save) save();
+	 if(o==save)
+		 save();
 		
 	}
 
@@ -147,7 +150,7 @@ public class Colorpanel extends JDialog implements ActionListener{
 					new ActionListener(){
 
 						public void actionPerformed(ActionEvent e) {
-                          Color tcc = JColorChooser.showDialog(THIS,"Choose color",null);
+                          Color tcc = JColorChooser.showDialog(THIS,"Choose Color",null);
                           if(tcc!=null) writeColor(tcc);
 
 						}
