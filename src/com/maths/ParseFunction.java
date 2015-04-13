@@ -23,7 +23,7 @@ public class ParseFunction {
 	
 	public String function="";
 	
-	public Vector recordedFunctions=new Vector();
+	public Vector<String> recordedFunctions=new Vector<String>();	//added generic parameter
 	
 		
 	public static String[] FZ={"(",SIN+"(",COS+"(",TAN+"(",LOG+"(",EXP+"(",
@@ -113,14 +113,14 @@ public class ParseFunction {
 	
 	private void decomposeFunctionWithRegister()  {
 		
-		String text="";
+		//String text="";	//commented out unused variable
 		int indx0=-1;
 		
 			
 		//System.out.println("statFunction:"+function);
 		
 		for(int i=0;i<recordedFunctions.size();i++){
-			String funct=(String)recordedFunctions.elementAt(i);
+			String funct=recordedFunctions.elementAt(i);	//removed cast
 			
 			int indx1=function.indexOf(")");
 			indx0=function.lastIndexOf(funct,indx1);
@@ -223,7 +223,7 @@ public class ParseFunction {
 	private double calculateParentheses(String molt) {
 		
 		
-		int indx=0;
+		//int indx=0;	//commented out unused variable
 		if(molt.length()==0) return 0;
 		//molt=molt.replaceAll(" ","");
 		return calculateArgument(molt);
