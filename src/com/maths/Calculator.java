@@ -392,16 +392,8 @@ public class Calculator extends Renderer3D{
 								graphics2D.drawLine(0,j-cy,i,j-cy);
 							} 		
 						}
-		
-			
-		
-		
-		
 	}
 	
-
-
-
 
 	/**
 	 * This is the funcion diplayed
@@ -470,10 +462,12 @@ public class Calculator extends Renderer3D{
 	public void zoom(int signum) {
 		
 		recalculate=false;
-		if(signum>0){
+		if(signum>0)
+		{
 		 deltax*=0.5;
 		} 
-		else{
+		else
+		{
 		 deltax/=0.5;
 		} 
 		deltay=deltax;
@@ -531,12 +525,4 @@ public class Calculator extends Renderer3D{
 	  		  	
 	  	return df.format((x-x0)*deltax);
 	}
-
-
-
-
-
-
-
-
 }

@@ -128,7 +128,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 		
 		calc=new Calculator(WIDTH,HEIGHT);
 		calc.setY0(250);
-		calc.setX0(50);
+		calc.setX0(350);//changed from 50
 
 		if(VISUALIZATION_STATE==CARTESIAN2D_STATE)
 		{
@@ -691,29 +691,33 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 	 */
 	public void actionPerformed(ActionEvent arg0) {
 		
-		Object o=arg0.getSource();
+		Object o = arg0.getSource();
 		
 		if(o==draw || o==jmt2 )
 			draw();
-		else if (o==more){
+		else if (o == more)
+		{
 			zoom(+1);
 		}
-		else if (o==less){
-			
+		else if (o == less)
+		{	
 			zoom(-1);
 		}
-		else if (o==calculateIntegral ||o==jmt3){
-			
+		else if (o==calculateIntegral ||o==jmt3)
+		{	
 			calculateIntegral();
 		}
-		else if (o==displayDerivative || o==jmt4){
+		else if (o==displayDerivative || o==jmt4)
+		{
 			
 				isDerivativeDisplay=!isDerivativeDisplay;
 				if(isDerivativeDisplay) 
-					{ displayDerivative.setText("No DF");
-				      jmt4.setText("No DF");
+				{ 
+					displayDerivative.setText("No DF");
+				    jmt4.setText("No DF");
 				}
-				else {
+				else
+				{
 					displayDerivative.setText("Show DF");
 					jmt4.setText("Show DF");
 				}
@@ -721,12 +725,15 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 				draw();
 				
 		}
-		else if (o==jmt1) exit();
-		else if(o==jmt21) {
+		else if (o==jmt1)
+			exit();
+		
+		else if(o==jmt21)
+		{
 			VISUALIZATION_STATE=CARTESIAN2D_STATE;
 			calc.DISPLAYED_FUNCTION="sin(x)";
 			calc.setY0(250);
-			calc.setX0(50);
+			calc.setX0(350);//changed from 50
 			displayedFunction.setText(calc.DISPLAYED_FUNCTION);
 			remove(up);
 			remove(right);
@@ -736,14 +743,12 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 			jmt4.setVisible(true);
 			setColors(p);
 			repaint();
-			
-			
 		}
 		else if(o==jmt22) {
 			VISUALIZATION_STATE=POLAR2D_STATE;	
 			calc.DISPLAYED_FUNCTION="2";
 			calc.setY0(250);
-			calc.setX0(250);
+			calc.setX0(350);////changed from 250
 			displayedFunction.setText(calc.DISPLAYED_FUNCTION);
 			remove(up);
 			remove(right);
@@ -758,7 +763,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 			VISUALIZATION_STATE=CARTESIAN3D_STATE;	
 			calc.DISPLAYED_FUNCTION="sin(x+y)";
 			calc.setY0(250);
-			calc.setX0(250);
+			calc.setX0(350);//changed from 250
 			displayedFunction.setText(calc.DISPLAYED_FUNCTION);
 			remove(up);
 			remove(right);
@@ -933,16 +938,21 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 	/**
 	 * 
 	 */
-	private void zoom(int i) {
+	private void zoom(int i)
+	{
 		calc.zoom(i);
+		
 		double alfa=1.0;
-		if(i>0){
+		
+		if(i>0)
+		{
 			alfa=0.5;
 		}
-		else {
-			alfa=2.0;
-			
+		else
+		{
+			alfa=2.0;	
 		}
+		
 		int dx=(int) ((WIDTH/2-calc.x0)*(1-1.0/alfa));
 		int dy=(int) ((HEIGHT/2-calc.y0)*(1-1.0/alfa));
 		calc.moveCenter(dx,dy);

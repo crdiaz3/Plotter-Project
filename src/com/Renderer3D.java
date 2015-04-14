@@ -75,15 +75,13 @@ public class Renderer3D {
 	//private static int quickAnimation=0;//time for animations
 	
 	
-	public void init(int WIDTH,int HEIGHT){
-
-
+	public void init(int WIDTH,int HEIGHT)
+	{
 		this.WIDTH=WIDTH;
 		this.HEIGHT=HEIGHT;
 		
 		zbuffer=new ZBuffer[WIDTH*HEIGHT];
 		buildNewZBuffer();
-
 		
 		//direction of projection
 		pAsso=new Point3D(Math.cos(alfa)/s2,Math.sin(alfa)/s2,1/s2);
@@ -91,9 +89,10 @@ public class Renderer3D {
 		
 	}
 	
-	public void init(Point3D[] ds) {
-		for(int i=0;i<ds.length;i++){
-
+	public void init(Point3D[] ds)
+	{
+		for(int i=0;i<ds.length;i++)
+		{
 			ds[i]=new Point3D();
 		}
 
