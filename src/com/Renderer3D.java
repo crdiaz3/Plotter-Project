@@ -72,7 +72,7 @@ public class Renderer3D {
 	}
 
 
-	private static int quickAnimation=0;//time for animations
+	//private static int quickAnimation=0;//time for animations
 	
 	
 	public void init(int WIDTH,int HEIGHT){
