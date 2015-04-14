@@ -567,7 +567,7 @@ public class Polygon3D extends Polygon{
 
 			double valPoint=line.signum(x,y);
 
-			//near the border the precise calcutation is very difficult
+			//near the border the precise calculation is very difficult
 			if(Math.abs(valPoint)<0.01) valPoint=0;
 
 			for(int j=2;j<npoints;j++){
