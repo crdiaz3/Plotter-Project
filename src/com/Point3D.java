@@ -355,7 +355,17 @@ public class Point3D {
 
 	}
 
-
+/**
+ * I can only make assumptions about this, but I am pretty confident in these
+ * 		assumptions
+ * This method will rotate a 3D point about the axis centered at (x0, y0) 
+ * 		which is orthogonal to the XY plane with an angle of theta where 
+ * 		cos = cos(theta) and sin = sin(theta)
+ * @param x0	the x coordinate of the axis to rotate on
+ * @param y0	the y coordinate of the axis to rotate on
+ * @param cos	the calculated cosine of theta
+ * @param sin	the calculated sine of theta
+ */
 	public void rotate(double x0, double y0,double cos, double sin ) {
 		
 		double xx=this.x;
