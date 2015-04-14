@@ -35,7 +35,7 @@ public class Renderer3D {
 	public double deltaz=1;
 	
 	public static int SCREEN_DISTANCE=300;
-	//public int screen_distance=10;
+	public int screen_distance=10;//Is this used? It was commented out.
 	
 	
 	public int y0=250;

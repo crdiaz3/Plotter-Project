@@ -37,8 +37,7 @@ public class Point3D {
 	}
 
 	
-	public Point3D(double x, double y, double z, double p_x, double p_y,
-			double p_z, Point3D normal) {
+	public Point3D(double x, double y, double z, double p_x, double p_y, double p_z, Point3D normal) {
 		
 		this( x,  y,  z,  p_x,  p_y,p_z);
 		setNormal(normal);

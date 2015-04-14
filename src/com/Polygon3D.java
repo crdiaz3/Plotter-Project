@@ -285,10 +285,10 @@ public class Polygon3D extends Polygon{
 			int z1=p_out.zpoints[i];
 
 
-
-			int x2=0;
-			int y2=0;
-			int z2=0;	//eclipse is lying to me, this value is used
+			//Removed unused values
+			int x2;
+			int y2;
+			int z2;	//eclipse is lying to me, this value is used.
 
 			if(i==p_out.npoints-1) {
 

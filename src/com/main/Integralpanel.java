@@ -34,7 +34,7 @@ public class Integralpanel extends JDialog implements ActionListener{
 	
 	public Integralpanel(Calculator calc) throws HeadlessException {
 		
-		setBounds(30,30,200,230);
+		setBounds(30,30,200,260);//changed height from 230 to 260
 		setTitle("Integral");
 		pan=new JPanel();
 		pan.setLayout(null);
@@ -50,7 +50,7 @@ public class Integralpanel extends JDialog implements ActionListener{
 		alabel.setBounds(5,r,20,20);
 		pan.add(alabel);
 		displayedA=new DigitTextField();
-		//displayedA.setEditable(false);
+
 		displayedA.setBounds(35,r,80,20);
 		pan.add(displayedA);
 		r+=20;
@@ -58,9 +58,10 @@ public class Integralpanel extends JDialog implements ActionListener{
 		blabel.setBounds(5,r,20,20);
 		pan.add(blabel);
 		displayedB=new DigitTextField();
-		//displayedB.setEditable(false);
+
 		displayedB.setBounds(35,r,80,20);
 		pan.add(displayedB);
+		
 		r+=30;
 		ButtonGroup bg=new ButtonGroup();
 		typet=new JRadioButton("Trapezium");
@@ -68,18 +69,22 @@ public class Integralpanel extends JDialog implements ActionListener{
 		typet.setBounds(5,r,100,20);
 		typet.setOpaque(false);
 		pan.add(typet);
+		
+		r+=20;//moved the Simpson button down
 		types=new JRadioButton("Simpson");
 		bg.add(types);
 		types.setOpaque(false);
 		types.setSelected(true);
-		types.setBounds(110,r,100,20);
+		types.setBounds(5,r,100,20);//changed x value from 110 to 5
 		pan.add(types);
+		
 		r+=20;
 		typeg = new JRadioButton("Gauss");
 		bg.add(typeg);
 		typeg.setBounds(5,r,100,20);
 		typeg.setOpaque(false);
 		pan.add(typeg);
+		
 		r+=30;
 		JLabel reslabel = new JLabel("Res:");
 		reslabel.setBounds(5,r,30,20);
@@ -88,6 +93,7 @@ public class Integralpanel extends JDialog implements ActionListener{
 		result.setBounds(40,r,100,20);
 		result.setEditable(false);
 		pan.add(result);
+		
 		r+=30;
 		recalculate=new JButton("Recalculate");
 		recalculate.setBounds(5,r,140,20);
@@ -112,8 +118,10 @@ public class Integralpanel extends JDialog implements ActionListener{
 		double val=0;
 		if(types.isSelected())
 			val=AdvancedCalculator.SimpsonIntegral(calc2);
+		
 		else if(typet.isSelected())
 			val=AdvancedCalculator.trapeziumIntegral(calc2);
+		
 		else if(typeg.isSelected())
 			val=AdvancedCalculator.gaussIntegral(calc2);
 
@@ -132,7 +140,9 @@ public class Integralpanel extends JDialog implements ActionListener{
 	 */
 	public void actionPerformed(ActionEvent arg0) {
 		Object o=arg0.getSource();
-		if(o==recalculate) recalculate();
+		
+		if(o==recalculate)
+			recalculate();
 		
 	}
 
