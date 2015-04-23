@@ -190,7 +190,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 	private void buildMenuBar() {
 		
 		jmb=new JMenuBar();
-		jm=new JMenu("Do");
+		jm=new JMenu("Methods");//changed from 'do'
 		jm.addMenuListener(this);
 		
 		jmt1=new JMenuItem("Exit");
@@ -255,7 +255,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 	 */
 	private void buildBottomPanel() {
 		
-		draw=new JButton("<html><body><u>D</u>raw</body</html>");
+		draw=new JButton("Draw");//changed from <html><body><u>D</u>raw</body</html>
 		draw.addActionListener(this);
 		draw.setBounds(100,2,100,20);
 		
@@ -337,14 +337,14 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 			up.setBounds(0,0,LEFTBORDER+WIDTH+RIGHTBORDER,UPBORDER);
 			
 			add(up);
-			JLabel flabel = new JLabel("Displayed function: r(teta)=");
+			JLabel flabel = new JLabel("Displayed function: r(theta)=");//corrected spelling
 			flabel.setBounds(5,5,160,20);
 			up.add(flabel);
 			
 			displayedFunction=new FunctionTextField();
 			displayedFunction.addKeyListener(this);
 
-			displayedFunction.setBounds(170,5,400,20);
+			displayedFunction.setBounds(170,5,400,20);//changed from 400
 			displayedFunction.addFocusListener(this);
 			up.add(displayedFunction);
 			
@@ -394,7 +394,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 			JLabel rlabel = new JLabel("Coord. ranges:");
 			rlabel.setBounds(5,60,100,20);
 			right.add(rlabel);
-			JLabel alabel = new JLabel("ax:");
+			JLabel alabel = new JLabel("a x:");
 			alabel.setBounds(5,90,20,20);
 			right.add(alabel);
 			
@@ -404,7 +404,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 			displayedA.setBounds(35,90,70,20);
 			right.add(displayedA);
 			
-			JLabel blabel = new JLabel("bx:");
+			JLabel blabel = new JLabel("b x:");
 			blabel.setBounds(5,120,20,20);
 			right.add(blabel);
 			add(right);
@@ -418,7 +418,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 			displayedA.setText(""+calc.a);
 			displayedB.setText(""+calc.b);
 			
-			JLabel a2label = new JLabel("ay:");
+			JLabel a2label = new JLabel("a y:");
 			a2label.setBounds(5,150,20,20);
 			right.add(a2label);
 			
@@ -428,7 +428,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 			displayedA2.setBounds(35,150,70,20);
 			right.add(displayedA2);
 			
-			JLabel b2label = new JLabel("by:");
+			JLabel b2label = new JLabel("b y:");
 			b2label.setBounds(5,180,20,20);
 			right.add(b2label);
 
@@ -507,8 +507,8 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 			rlabel.setBounds(5,60,100,20);
 			right.add(rlabel);
 			
-			JLabel alabel = new JLabel("teta1:");
-			alabel.setBounds(5,90,40,20);
+			JLabel alabel = new JLabel("theta 1:");//fixed spelling
+			alabel.setBounds(3,90,45,20);//changed from 5, 90, 40, 20
 			right.add(alabel);
 			
 			displayedA=new DigitTextField();
@@ -517,8 +517,8 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 			displayedA.setBounds(50,90,60,20);
 			right.add(displayedA);
 		
-			JLabel blabel = new JLabel("teta2:");
-			blabel.setBounds(5,120,40,20);
+			JLabel blabel = new JLabel("theta 2:");//fixed spelling
+			blabel.setBounds(3,120,45,20);//changed from 5, 120, 40, 20
 			right.add(blabel);
 			add(right);
 			
@@ -564,9 +564,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 				calc.draw(g2,getWIDTH(),getHEIGHT());
 				
 				if(isDerivativeDisplay){
-					
-					
-				
+
 					g2.setColor(LINE_2_COLOR);
 					
 					calc.drawDerivative(g2,getWIDTH(),getHEIGHT());
@@ -574,15 +572,11 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 			}
 			else if(VISUALIZATION_STATE==CARTESIAN3D_STATE){
 				
-								
-				
 				calc.draw3D(buf);
-				
-				
-				
-				
+
 			}
 			else if(VISUALIZATION_STATE==POLAR2D_STATE){
+
 				calc.drawPolar(g2,getWIDTH(),getHEIGHT());
 			
 			}
@@ -592,7 +586,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 		}
 		catch (Exception e) {
 			e.printStackTrace();
-			error("Error in parsing function,please read the README.TXT !");
+			error("Error in drawing function!");//changed the error message
 			displayedFunction.setText("0");
 			
 			return;
@@ -818,7 +812,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 		try {
 			Graphics2D bufGraphics=(Graphics2D)buf.getGraphics();
 			draw(bufGraphics);
-			ImageIO.write(buf,"jpg",file);
+			ImageIO.write(buf,"screen.jpg",file);//changed from jpg
 			
 		} catch (Exception e) {
 			
@@ -1015,20 +1009,20 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 
 	public void keyPressed(KeyEvent arg0) {
 		int code =arg0.getKeyCode();
-		if(code==KeyEvent.VK_LEFT && !displayedFunction.hasFocus())
+		if(code==KeyEvent.VK_LEFT || code==KeyEvent.VK_A)//deleted obsolete method
 			left(+1);
-		else if(code==KeyEvent.VK_RIGHT  && !displayedFunction.hasFocus() )
+		else if(code==KeyEvent.VK_RIGHT || code==KeyEvent.VK_D)//deleted obsolete method
 			left(-1);
-		else if(code==KeyEvent.VK_UP)
+		else if(code==KeyEvent.VK_UP || code==KeyEvent.VK_W)
 							up(-1);
-		else if(code==KeyEvent.VK_DOWN )
+		else if(code==KeyEvent.VK_DOWN || code==KeyEvent.VK_S)
 							up(+1);
-		else if(code==KeyEvent.VK_D)
+		else if(code==KeyEvent.VK_SPACE)//changed from D
 								draw();
-		else if(code==KeyEvent.VK_PLUS && !displayedFunction.hasFocus())
-								zoom(-1);
+		else if(code==KeyEvent.VK_PLUS && !displayedFunction.hasFocus())//this zoom no work yet
+								zoom(1);//changed to 1 from -1
 		else if(code==KeyEvent.VK_MINUS && !displayedFunction.hasFocus())
-								zoom(+1);
+								zoom(-1);//changed to -1 from 1; fixed zoom
 		
 	}
 
@@ -1158,9 +1152,9 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
    public void mouseWheelMoved(MouseWheelEvent arg0) {
 		int pix=arg0.getUnitsToScroll();
 		if(pix > 0)
-			up(-1);
+			zoom(-1);//changed to zoom
 		else
-			up(+1);
+			zoom(+1);//changed to zoom
 	}
 
 
