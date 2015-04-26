@@ -56,13 +56,15 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 	JButton more=null;
 	JButton less=null;
 	JButton calculateIntegral=null;
+	//NEW BUTTON!
+	JButton reset = null;
 	
 	//size of the display panel
 	public static int HEIGHT = 500;
 	public static int WIDTH = 800;
 	private Calculator calc;
 	
-	public static int BUTTOMBORDER=100;
+	public static int BUTTOMBORDER=120;
 	public static int UPBORDER=40;
 	public static int LEFTBORDER=0;
 	public static int RIGHTBORDER=150;
@@ -255,22 +257,22 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 	 */
 	private void buildBottomPanel() {
 		
-		draw=new JButton("Draw");//changed from <html><body><u>D</u>raw</body</html>
-		draw.addActionListener(this);
-		draw.setBounds(100,2,100,20);
+		reset=new JButton("Reset");//changed from <html><body><u>D</u>raw</body</html>
+		reset.addActionListener(this);
+		reset.setBounds(30,2,100,20);
 		
-		more=new JButton("+");
+		more=new JButton("Zoom IN");
 		more.addActionListener(this);
-		more.setBounds(210,2,50,20);
+		more.setBounds(130,2,100,20);//changed from 50
 		
-		less=new JButton("-");
+		less=new JButton("Zoom OUT");
 		less.addActionListener(this);
-		less.setBounds(280,2,50,20);
+		less.setBounds(230,2,100,20);
 		
 		bottom=new JPanel();
 		bottom.setLayout(null);
 		
-		bottom.add(draw);
+		bottom.add(reset);
 		bottom.add(less);  
 		bottom.add(more);
 		
@@ -291,7 +293,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 		bottom.setBounds(0,UPBORDER+HEIGHT,LEFTBORDER+WIDTH+RIGHTBORDER,BUTTOMBORDER);
 		add(bottom);
 		
-		draw.addKeyListener(this);
+		reset.addKeyListener(this);
 		less.addKeyListener(this);
 		more.addKeyListener(this);
 
@@ -310,6 +312,12 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 		up.setBounds(0,0,LEFTBORDER+WIDTH+RIGHTBORDER,UPBORDER);
 		add(up);
 		
+		//moved draw button
+		draw=new JButton("Draw");//changed from <html><body><u>D</u>raw</body</html>
+		draw.addActionListener(this);
+		draw.setBounds(540,5,100,20);
+		up.add(draw);
+		
 		JLabel flabel = new JLabel("Displayed function: y=");
 		flabel.setBounds(5,5,130,20);
 		up.add(flabel);
@@ -317,7 +325,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 		displayedFunction=new FunctionTextField();
 		displayedFunction.addKeyListener(this);
 
-		displayedFunction.setBounds(140,5,400,20);
+		displayedFunction.setBounds(140,5,400,20);//changed from 400
 		displayedFunction.addFocusListener(this);
 		
 		up.add(displayedFunction);
@@ -335,8 +343,14 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 			up=new JPanel();
 			up.setLayout(null);
 			up.setBounds(0,0,LEFTBORDER+WIDTH+RIGHTBORDER,UPBORDER);
-			
 			add(up);
+			
+			//add draw button
+			draw=new JButton("Draw");//changed from <html><body><u>D</u>raw</body</html>
+			draw.addActionListener(this);
+			draw.setBounds(540,5,100,20);
+			up.add(draw);
+			
 			JLabel flabel = new JLabel("Displayed function: r(theta)=");//corrected spelling
 			flabel.setBounds(5,5,160,20);
 			up.add(flabel);
@@ -363,6 +377,12 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 			up.setLayout(null);
 			up.setBounds(0,0,LEFTBORDER+WIDTH+RIGHTBORDER,UPBORDER);
 			add(up);
+			
+			//add draw button
+			draw=new JButton("Draw");//changed from <html><body><u>D</u>raw</body</html>
+			draw.addActionListener(this);
+			draw.setBounds(540,5,100,20);
+			up.add(draw);
 			
 			JLabel flabel = new JLabel("Displayed function: z(x,y)=");
 			flabel.setBounds(5,5,150,20);
@@ -689,6 +709,10 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 		
 		if(o==draw || o==jmt2 )
 			draw();
+		
+		else if(o==reset)//makes the reset button work
+			reset();
+		
 		else if (o == more)
 		{
 			zoom(+1);
@@ -739,7 +763,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 			repaint();
 		}
 		else if(o==jmt22) {
-			VISUALIZATION_STATE=POLAR2D_STATE;	
+			VISUALIZATION_STATE=POLAR2D_STATE;
 			calc.DISPLAYED_FUNCTION="2";
 			calc.setY0(250);
 			calc.setX0(350);////changed from 250
@@ -754,7 +778,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 			repaint();
 		}
 		else if(o==jmt23) {
-			VISUALIZATION_STATE=CARTESIAN3D_STATE;	
+			VISUALIZATION_STATE=CARTESIAN3D_STATE;
 			calc.DISPLAYED_FUNCTION="sin(x+y)";
 			calc.setY0(250);
 			calc.setX0(350);//changed from 250
@@ -782,6 +806,58 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 			exportData();
 		}
 		
+	}
+	
+	private void reset()
+	{
+		if(VISUALIZATION_STATE==CARTESIAN2D_STATE)
+		{
+			calc.DISPLAYED_FUNCTION="sin(x)";
+			calc.setY0(250);
+			calc.setX0(350);
+			displayedFunction.setText(calc.DISPLAYED_FUNCTION);
+			remove(up);
+			remove(right);
+			buildUpPanel();
+			buildRightPanel();
+			jmt3.setVisible(true);
+			jmt4.setVisible(true);
+			setColors(p);
+			repaint();
+			zoom(0);
+		}
+		else if(VISUALIZATION_STATE==POLAR2D_STATE)
+		{	
+			calc.DISPLAYED_FUNCTION="2";
+			calc.setY0(250);
+			calc.setX0(350);
+			displayedFunction.setText(calc.DISPLAYED_FUNCTION);
+			remove(up);
+			remove(right);
+			buildPolarUpPanel();
+			buildPolarRightPanel();
+			jmt3.setVisible(false);
+			jmt4.setVisible(false);
+			setColors(p);
+			repaint();
+			zoom(0);
+		}
+		else if(VISUALIZATION_STATE==CARTESIAN3D_STATE)
+		{	
+			calc.DISPLAYED_FUNCTION="";
+			calc.setY0(250);
+			calc.setX0(350);
+			displayedFunction.setText(calc.DISPLAYED_FUNCTION);
+			remove(up);
+			remove(right);
+			build3DUpPanel();
+			build3DRightPanel();
+			jmt3.setVisible(false);
+			jmt4.setVisible(false);
+			setColors(p);
+			repaint();
+			zoom(0);
+		}
 	}
 
 	private void saveImage() {
@@ -935,8 +1011,10 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 	private void zoom(int i)
 	{
 		calc.zoom(i);
+		draw();
 		
-		double alfa=1.0;
+		//DO NOT USE COMMENTED OUT SECTION!
+		/**double alfa=1.0;
 		
 		if(i>0)
 		{
@@ -949,8 +1027,8 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 		
 		int dx=(int) ((WIDTH/2-calc.x0)*(1-1.0/alfa));
 		int dy=(int) ((HEIGHT/2-calc.y0)*(1-1.0/alfa));
-		calc.moveCenter(dx,dy);
-		draw();
+		calc.moveCenter(dx,dy);*/
+		
 	}
 
 
@@ -1009,15 +1087,15 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 
 	public void keyPressed(KeyEvent arg0) {
 		int code =arg0.getKeyCode();
-		if(code==KeyEvent.VK_LEFT || code==KeyEvent.VK_A)//deleted obsolete method
+		if(code==KeyEvent.VK_LEFT)//deleted obsolete method
 			left(+1);
-		else if(code==KeyEvent.VK_RIGHT || code==KeyEvent.VK_D)//deleted obsolete method
+		else if(code==KeyEvent.VK_RIGHT)//deleted obsolete method
 			left(-1);
-		else if(code==KeyEvent.VK_UP || code==KeyEvent.VK_W)
+		else if(code==KeyEvent.VK_UP)
 							up(-1);
-		else if(code==KeyEvent.VK_DOWN || code==KeyEvent.VK_S)
+		else if(code==KeyEvent.VK_DOWN)
 							up(+1);
-		else if(code==KeyEvent.VK_SPACE)//changed from D
+		else if(code==KeyEvent.VK_CONTROL)//changed from D
 								draw();
 		else if(code==KeyEvent.VK_PLUS && !displayedFunction.hasFocus())//this zoom no work yet
 								zoom(1);//changed to 1 from -1

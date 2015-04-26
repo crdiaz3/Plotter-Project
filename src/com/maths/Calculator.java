@@ -465,11 +465,25 @@ public class Calculator extends Renderer3D{
 		if(signum>0)
 		{
 		 deltax*=0.5;
+		 System.out.println("deltax = " + deltax);
 		} 
-		else
+		else if(signum < 0)
 		{
 		 deltax/=0.5;
-		} 
+		 System.out.println("deltax = " + deltax);
+		}
+		else
+		{
+			deltax = 0.0125;//default zoom
+		}
+		
+		//upper limit
+		if(deltax > 0.25)
+			deltax = 0.25;
+		
+		//lower limit
+		if(deltax < 0.0026)
+			deltax = 0.0026;
 		deltay=deltax;
 	}
 
