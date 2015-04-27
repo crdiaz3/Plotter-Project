@@ -1,12 +1,12 @@
 package com;
 
-import java.awt.Point;
+//import java.awt.Point;
 import java.awt.Polygon;
-import java.awt.geom.Area;
+//import java.awt.geom.Area;
 //import java.awt.geom.Line2D;	commented out useless import
-import java.awt.geom.PathIterator;
+//import java.awt.geom.PathIterator;
 //import java.util.Date;	//commented out useless import
-import java.util.Vector;
+//import java.util.Vector;
 
 
 public class Polygon3D extends Polygon{
@@ -44,6 +44,7 @@ public class Polygon3D extends Polygon{
 	}
 
 
+	/*
 	public Polygon3D(Vector<Point3D> points) {	//added <Point3D>
 
 		this.npoints=points.size();
@@ -65,12 +66,16 @@ public class Polygon3D extends Polygon{
 
 
 	}
+	*/
 	
+	/*
 	public void addPoint(Point3D p) {
 		
 		addPoint((int)p.x,(int)p.y,(int)p.z);
 	}
+	*/
 	
+	/*
 	public void addPoint(int x, int y,int z) {
 		
 		Polygon3D new_pol=new Polygon3D(this.npoints+1);
@@ -90,17 +95,22 @@ public class Polygon3D extends Polygon{
 		this.setZpoints(new_pol.zpoints);
 		
 	}
+	*/
 	
+	/*
 	public Polygon3D clone(){
 
 		return buildTranslatedPolygon(0,0,0);
 
 	}
+	*/
 
 
+	/*
 	public Polygon3D() {
 
 	}
+	*/
 	
 	public static Polygon3D[] divideIntoTriangles(Polygon3D pol){
 		
@@ -144,6 +154,7 @@ public class Polygon3D extends Polygon{
 		
 	}
 	
+	/*
 	public static Polygon3D extractSubPolygon3D(Polygon3D pol,int numAngles,int startAngle){
 
 
@@ -167,7 +178,9 @@ public class Polygon3D extends Polygon{
 		new_pol.setHexColor(pol.getHexColor());
 		return new_pol;
 	}
+	*/
 
+	/*
 	public static Polygon3D fromAreaToPolygon2D(Area area){
 
 		Polygon3D pol=new Polygon3D();
@@ -197,8 +210,9 @@ public class Polygon3D extends Polygon{
 		Polygon3D pol2=removeRedundant(pol);
 		return pol2;
 	}
+	*/
 
-
+	/*
 	private static Polygon3D removeRedundant(Polygon3D pol) {
 
 		boolean redundant=false;
@@ -227,7 +241,9 @@ public class Polygon3D extends Polygon{
 		}
 
 	}
+	*/
 
+	@Override
 	public String toString() {
 		StringBuffer sb=new StringBuffer();
 
@@ -248,7 +264,7 @@ public class Polygon3D extends Polygon{
 		return sb.toString();
 	}
 	
-	
+	/*
 	public Area clipPolygonToArea2D(Area area_out){
 
 
@@ -260,6 +276,7 @@ public class Polygon3D extends Polygon{
 		return new_area_out;
 
 	}
+	*/
 
 	/**
 	 * 
@@ -269,6 +286,7 @@ public class Polygon3D extends Polygon{
 	 * @param p_out
 	 * @return
 	 */
+	/*
 	public static Polygon3D clipPolygon3D(Polygon3D p_in,Polygon3D  p_out){
 
 
@@ -346,7 +364,9 @@ public class Polygon3D extends Polygon{
 		return p_in;
 
 	}
+	*/
 
+	/*
 	public static Polygon3D clipPolygon3DInY(Polygon3D  p_old,int y){
 
 
@@ -410,7 +430,9 @@ public class Polygon3D extends Polygon{
 		
 		return p_new;
 	}
+	*/
 	
+	/*
 	public static Polygon3D clipPolygon3DInX(Polygon3D  p_old,int x){
 
 
@@ -473,7 +495,9 @@ public class Polygon3D extends Polygon{
 		
 		return p_new;
 	}
+	*/
 
+	/*
 	private static Point insersect(Point p1, Point p2, int x2, int x1, int y2, int y1) {
 
 		//Line2D.Double line1=new Line2D.Double(x2,y2,x1,y1);	//commented out 2 lines
@@ -516,14 +540,18 @@ public class Polygon3D extends Polygon{
 
 		return insersection;
 	}
+	*/
 
+	/*
 	private static boolean isInsideClipPlane(int pox,int poy, int ax, int ay) {
 
 
 		return (ax*poy-ay*pox)>=0;
 	}
+	*/
 
 
+	/*
 	public static boolean isFacing(Polygon3D pol,Point3D observer){
 
 		Point3D p0=new Point3D(pol.xpoints[0],pol.ypoints[0],pol.zpoints[0]);
@@ -537,7 +565,9 @@ public class Polygon3D extends Polygon{
 
 		return cosin>=0;
 	}
+	*/
 	
+	/*
 	public static Point3D findNormal(Polygon3D pol){
 
 		Point3D p0=new Point3D(pol.xpoints[0],pol.ypoints[0],pol.zpoints[0]);
@@ -556,8 +586,10 @@ public class Polygon3D extends Polygon{
 
 		return normal;
 	}
+	*/
 
 
+	/*
 	public boolean hasInsidePoint(double x,double y){
 
 		for(int i=0;i<npoints;i++){
@@ -583,11 +615,13 @@ public class Polygon3D extends Polygon{
 
 		return true;
 	}
+	*/
 
 
 	
 
 
+	/*
 	public static class AnalyticLine{
 
 
@@ -617,59 +651,10 @@ public class Polygon3D extends Polygon{
 
 
 	}
+	*/
 
-	public static void main(String[] args) {
-
-		int[] cx=new int[4];
-		int[] cy=new int[4];
-		int[] cz=new int[4];
-
-
-		cx[0]=10;
-		cy[0]=10;
-		cx[1]=0;
-		cy[1]=50;
-		cx[2]=50;
-		cy[2]=60;
-		cx[3]=50;
-		cy[3]=-10;
-
-
-
-		int[] cx1=new int[3];
-		int[] cy1=new int[3];
-		int[] cz1=new int[3];
-
-		Polygon3D p1=new Polygon3D(4,cx,cy,cz);
-
-		cx1[0]=10;
-		cy1[0]=-20;
-		cx1[1]=50;
-		cy1[1]=40;
-		cx1[2]=30;
-		cy1[2]=-40;
-
-		Polygon3D p2=new Polygon3D(3,cx1,cy1,cz1);
-
-		System.out.println(p2.hasInsidePoint(20,0));	//uncommented 6 lines
-		System.out.println(p2.hasInsidePoint(30,40));
-		System.out.println(p2.hasInsidePoint(40,10));
-
-		Area out=new Area(p1); 
-		Area in=new Area(p2);
-
-
-		Polygon3D p3=fromAreaToPolygon2D(out);
-
-		System.out.println(p3);
-		out.intersect(in);
-		Polygon3D p_res=clipPolygon3D(p1,p2);
-		System.out.println(p_res);	//changed to p_res
-		Polygon3D p4=clipPolygon3DInY(p2,0);	//changed to p4
-		System.out.println(p4);	//changed to p4
-	}
 	
-	
+	/*
 	public Polygon3D buildTranslatedPolygon(double dx,double dy,double dz){
 
 		Polygon3D translatedPolygon=new Polygon3D(this.npoints);
@@ -685,7 +670,9 @@ public class Polygon3D extends Polygon{
 		return translatedPolygon;
 
 	}
+	*/
 	
+	/*
 	public void translate(double dx,double dy,double dz){
 
 
@@ -699,7 +686,9 @@ public class Polygon3D extends Polygon{
 
 
 	}
+	*/
 	
+	/*
 	public void invertY(int y0) {		
 	
 
@@ -711,7 +700,9 @@ public class Polygon3D extends Polygon{
 
 		
 	}
+	*/
 	
+	/*
 	public static Polygon3D buildPrismIFace(Polygon3D upperBase,Polygon3D lowerBase,int i){
 
 		int n=upperBase.npoints;
@@ -746,9 +737,11 @@ public class Polygon3D extends Polygon{
 		return base;
 
 	}
+	*/
 	
 	 
 
+	/*
 	public String getHexColor() {
 		return hexColor;
 	}
@@ -794,7 +787,9 @@ public class Polygon3D extends Polygon{
 	public void setZpoints(int[] zpoints) {
 		this.zpoints = zpoints;
 	}
+	*/
 
+	/*
 	public static Point3D findCentroid(Polygon3D p3d) {
 		
 		
@@ -812,6 +807,7 @@ public class Polygon3D extends Polygon{
         return new Point3D(x/n,y/n,z/n);
 
 	}
+	*/
 
 	public double getShadowCosin() {
 		return shadowCosin;
