@@ -812,10 +812,8 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 	{
 		if(VISUALIZATION_STATE==CARTESIAN2D_STATE)
 		{
-			calc.DISPLAYED_FUNCTION="sin(x)";
 			calc.setY0(250);
 			calc.setX0(350);
-			displayedFunction.setText(calc.DISPLAYED_FUNCTION);
 			remove(up);
 			remove(right);
 			buildUpPanel();
@@ -828,10 +826,8 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 		}
 		else if(VISUALIZATION_STATE==POLAR2D_STATE)
 		{	
-			calc.DISPLAYED_FUNCTION="2";
 			calc.setY0(250);
 			calc.setX0(350);
-			displayedFunction.setText(calc.DISPLAYED_FUNCTION);
 			remove(up);
 			remove(right);
 			buildPolarUpPanel();
@@ -844,10 +840,8 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 		}
 		else if(VISUALIZATION_STATE==CARTESIAN3D_STATE)
 		{	
-			calc.DISPLAYED_FUNCTION="";
 			calc.setY0(250);
 			calc.setX0(350);
-			displayedFunction.setText(calc.DISPLAYED_FUNCTION);
 			remove(up);
 			remove(right);
 			build3DUpPanel();
