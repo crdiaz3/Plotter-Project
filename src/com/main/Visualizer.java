@@ -1089,7 +1089,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 							up(-1);
 		else if(code==KeyEvent.VK_DOWN)
 							up(+1);
-		else if(code==KeyEvent.VK_CONTROL)//changed from D
+		else if(code==KeyEvent.VK_ENTER)//changed from D
 								draw();
 		else if(code==KeyEvent.VK_PLUS && !displayedFunction.hasFocus())//this zoom no work yet
 								zoom(1);//changed to 1 from -1
