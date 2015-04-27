@@ -5,12 +5,12 @@ package com;
 import java.awt.Color;
 //import java.awt.Graphics2D;	/commented out 2 uesless imports
 //import java.awt.event.ActionEvent;
-import java.awt.geom.Line2D;
+//import java.awt.geom.Line2D;
 import java.awt.image.BufferedImage;
-import java.io.PrintWriter;
+//import java.io.PrintWriter;
 import java.util.Enumeration;
 import java.util.Hashtable;
-import java.util.Properties;
+//import java.util.Properties;
 import java.util.Vector;
 
 import com.main.Visualizer;
@@ -89,6 +89,7 @@ public class Renderer3D {
 		
 	}
 	
+	/*
 	public void init(Point3D[] ds)
 	{
 		for(int i=0;i<ds.length;i++)
@@ -97,6 +98,7 @@ public class Renderer3D {
 		}
 
 	}
+	*/
 	
 	public void buildScreen(BufferedImage buf, ZBuffer[] zbuffer2) {
 
@@ -644,6 +646,7 @@ public class Renderer3D {
 
 	}
 	
+	/*
 	public Line2D.Double newLine(double x1,double y1,double z1,double x2,double y2,double z2){
 		double xx1=calcAssX(x1,y1,z1);
 		double yy1=calcAssY(x1,y1,z1);
@@ -651,11 +654,14 @@ public class Renderer3D {
 		double yy2=calcAssY(x2,y2,z2);
 		return new Line2D.Double(xx1,yy1,xx2,yy2);	
 	}
+	*/
 
+	/*
 	public Line2D.Double newLine(Point3D p1,Point3D p2){
 
 		return newLine(p1.z,p1.x,p1.y,p2.z,p2.x,p2.y);	
 	}
+	*/
 	
 	public double calcAssX(Point3D p){
 
@@ -679,19 +685,24 @@ public class Renderer3D {
 			return HEIGHT-((z-x*cosAlfa)+y0);
 	}
 	
+	/*
 	public void translate(int i, int j) {
 		x0=x0+10*i;
 		y0=y0+10*j;
 	}
+	*/
 	
 
+	/*
 	public void zoomOut(){
 		
 		deltay=deltax=deltax*1.25;
 	
 		
 	}
+	*/
 	
+	/*
 	public void zoomIn(){
 		
 		if(deltax==0.5)
@@ -700,7 +711,9 @@ public class Renderer3D {
 	
 		
 	}
+	*/
 	
+	/*
 	public void translateLight(int i, int j) {
 		
 		lightAngleFi+=0.1*i;
@@ -713,12 +726,14 @@ public class Renderer3D {
 		setLight();
 		
 	}
+	*/
 	
 	public void setLight(){
 		
 		pLight=new Point3D(Math.cos(lightAngleFi)*Math.sin(lightAngleTeta),-Math.cos(lightAngleTeta),-Math.sin(lightAngleFi)*Math.sin(lightAngleTeta));
 	}
 	
+	/*
 	public void changeLightIntensity(double di){
 		
 		if(di<0){
@@ -734,11 +749,14 @@ public class Renderer3D {
 		}
 		
 	}
+	*/
 	
+	/*
 	public double[][] getRotationMatrix(Point3D versor,double teta){
 
 		return getRotationMatrix(versor.x,versor.y,versor.z,teta);
 	}
+	*/
 
 	/**
 	 * 
@@ -754,6 +772,7 @@ public class Renderer3D {
 
 
 
+	/*
 	public double[][] getRotationMatrix(double x,double y,double z,double teta){
 
 		double[][] matrix=new double[3][3];
@@ -768,6 +787,7 @@ public class Renderer3D {
 		matrix[2][2]=Math.cos(teta)+z*z*(1.0-Math.cos(teta));
 		return matrix;
 	} 
+	*/
 
 
 
@@ -796,27 +816,35 @@ public class Renderer3D {
 	
 
 
+	/*
 	public void reset() {
 		// TODO Auto-generated method stub
 		
 	}
+	*/
 
+	/*
 	public void loadFormat(Properties p) {
 		
 		
 	}
+	*/
 
+	/*
 	public void saveFormat(PrintWriter pw) {
 		// TODO Auto-generated method stub
 		
 	}
+	*/
 
+	/*
 	public void buildMovements(Vector keyPressed) {
 		// TODO Auto-generated method stub
 		
 	}
+	*/
 	
-	
+	/*
 	public void rotateView(int versus){
 		
 		if(versus>0)		
@@ -827,6 +855,7 @@ public class Renderer3D {
 		sinphi=Math.sin(phi);
 		cosphi=Math.cos(phi);
 	}
+	*/
 
 	public int getY0() {
 		return y0;

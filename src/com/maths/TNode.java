@@ -7,7 +7,7 @@ public class TNode {
 
 	String label=null;
 	TNode parent=null;
-	Vector children=null;
+	Vector<TNode> children=null;	//added <TNode>
 	
 	boolean marked=false;
 	Object value=null;
@@ -49,27 +49,33 @@ public class TNode {
 
 	public TNode(){
 		
-		children=new Vector();
+		children=new Vector<TNode>();	//added <TNode>
 	}
 	
+	/*
 	public TNode(Object value){
 		
 		children=new Vector();
 		this.value=value;
 	}
+	*/
 	
+	/*
 	public TNode(TNode parent){
 		
 		this.parent=parent;
 		children=new Vector();
 	}
-	
+	*/
+
+	/*
 	public TNode(TNode parent,Object value){
 		
 		this.parent=parent;
 		children=new Vector();
 		this.value=value;
 	}
+	*/
 	
 	public void appendChild(TNode child){
 		
@@ -85,25 +91,32 @@ public class TNode {
 
 	public TNode getChildAt(int i) {
 		
-		return (TNode) children.elementAt(i);
+		return children.elementAt(i);	//removed cast
 	}
 	
+	/*
 	public void removeChildAt(int i) {
 		
 		children.removeElementAt(i);
 	}
+	*/
 	
+	/*
 	public void removeChild(TNode tNode) {
 		
 		children.remove(tNode);
 	}
+	*/
 	
+	/*
 	public void clearTnode(){
 		
 		children=new Vector();
 		
 	}
+	*/
 	
+	/*
 	public String toString(){
 		
 		if(value==null)
@@ -111,7 +124,9 @@ public class TNode {
 		
 		return value.toString();
 	}
+	*/
 
+	/*
 	public void print() {
 
 		System.out.println(toString());
@@ -126,7 +141,9 @@ public class TNode {
 		
 
 	}
+	*/
 
+	/*
 	public void printBranches() {
 		
 		if(getChildCount()==0)
@@ -164,8 +181,10 @@ public class TNode {
 		}
 		
 	}
+	*/
 	
 	
+	/*
 	public void printTree() {
 		
 		System.out.print(toString());
@@ -186,6 +205,7 @@ public class TNode {
 		}
 		System.out.print(")");
 	}
+	*/
 
 	public void setLabel(char ch) {
 		setLabel(""+ch);

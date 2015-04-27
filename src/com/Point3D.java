@@ -64,7 +64,7 @@ public class Point3D {
 
 
 	public Point3D() {
-		// TODO Auto-generated constructor stub
+		
 	}
 	
 	/*
@@ -84,18 +84,14 @@ public class Point3D {
 	}
 	
 
-	/*
 	public boolean isSelected() {
 		return isSelected;
 	}
-	*/
 
 
-	/*
 	public void setSelected(boolean isSelected) {
 		this.isSelected = isSelected;
 	}
-	*/
 
 	/*
 	public static double calculateCosin(Point3D a, Point3D b) {
@@ -221,53 +217,37 @@ public class Point3D {
 	}
 	*/
 	
-	/*
 	public double getX() {
 		return x;
 	}
-	*/
 
-	/*
 	public void setX(double x) {
 		this.x = x;
 	}
-	*/
 
-	/*
 	public double getY() {
 		return y;
 	}
-	*/
 
-	/*
 	public void setY(double y) {
 		this.y = y;
 	}
-	*/
 
-	/*
 	public double getZ() {
 		return z;
 	}
-	*/
 
-	/*
 	public void setZ(double z) {
 		this.z = z;
 	}
-	*/
 
-	/*
 	public double getP_z() {
 		return p_z;
 	}
-	*/
 
-	/*
 	public void setP_z(double p_z) {
 		this.p_z = p_z;
 	}
-	*/
 
 	public static double foundXIntersection(Point3D p1, Point3D p2,
 			double y) {
@@ -280,6 +260,7 @@ public class Point3D {
 
 	}
 	
+	/*
 	public static double foundXIntersection(double p1x, double p1y,double p2x, double p2y,
 			double y) {
 
@@ -290,6 +271,7 @@ public class Point3D {
 	
 
 	}
+	*/
 
 	/*
 	public static double foundZIntersection(Point3D p1, Point3D p2,

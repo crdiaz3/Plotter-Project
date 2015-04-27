@@ -1,6 +1,6 @@
 package com;
 
-import java.awt.Color;
+//import java.awt.Color;
 //import java.awt.Point;	//commented 2 useless imports
 //import java.awt.image.BufferedImage;
 
@@ -32,10 +32,14 @@ public class ZBuffer{
 			this.rgbColor = rgbColor;
 			this.z = z;
 		}
+		
+		/*
 		public ZBuffer() {
 			super();
 		}
+		*/
 		
+		/*
 		public static Color  fromHexToColor(String col){
 
 
@@ -48,7 +52,9 @@ public class ZBuffer{
 
 			return color;
 		}
+		*/
 
+		/*
 		public static String fromColorToHex(Color col){
 
 			String exe="";
@@ -60,8 +66,9 @@ public class ZBuffer{
 			return exe;
 
 		}
+		*/
 
-
+		/*
 		public static String addZeros(String hexString) {
 			
 			if(hexString.length()==1)
@@ -69,8 +76,9 @@ public class ZBuffer{
 			else 
 				return hexString;
 		}
+		*/
 		
-		
+		/*
 		public void update(double xs,double ys,double zs, int rgbColor) {
 			
 			
@@ -86,6 +94,7 @@ public class ZBuffer{
 			}
 
 		}
+		*/
 
 		public boolean isToUpdate(double ys){
 

@@ -243,6 +243,7 @@ public class Polygon3D extends Polygon{
 	}
 	*/
 
+	/*
 	@Override
 	public String toString() {
 		StringBuffer sb=new StringBuffer();
@@ -263,6 +264,7 @@ public class Polygon3D extends Polygon{
 
 		return sb.toString();
 	}
+	*/
 	
 	/*
 	public Area clipPolygonToArea2D(Area area_out){
@@ -741,7 +743,7 @@ public class Polygon3D extends Polygon{
 	
 	 
 
-	/*
+	
 	public String getHexColor() {
 		return hexColor;
 	}
@@ -761,8 +763,6 @@ public class Polygon3D extends Polygon{
 	public void setNpoints(int npoints) {
 		this.npoints = npoints;
 	}
-
-
 
 	public int[] getXpoints() {
 		return xpoints;
@@ -787,7 +787,6 @@ public class Polygon3D extends Polygon{
 	public void setZpoints(int[] zpoints) {
 		this.zpoints = zpoints;
 	}
-	*/
 
 	/*
 	public static Point3D findCentroid(Polygon3D p3d) {

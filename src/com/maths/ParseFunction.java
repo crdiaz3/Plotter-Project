@@ -1,4 +1,4 @@
-package com.maths;
+/*package com.maths;
 //import java.io.IOException;	//commented out useless import
 import java.text.NumberFormat;
 import java.util.Locale;
@@ -62,9 +62,9 @@ public class ParseFunction {
 		return result;
 	}
 
-	/**
+	*//**
 	 * @param function
-	 */
+	 *//*
 	private void decomposeFunction()  {
 
 		String text="";
@@ -133,10 +133,10 @@ public class ParseFunction {
 		
 	}
 
-	/**
+	*//**
 	 * @param text
 	 * @param fz2
-	 */
+	 *//*
 	private String replaceFunction(String text, int indx0,int end) {
 		
 		//System.out.println(text.substring(indx0,end+1));
@@ -215,10 +215,10 @@ public class ParseFunction {
 	
 
 
-	/**
+	*//**
 	 * @param molt
 	 * @return
-	 */
+	 *//*
 	
 	private double calculateParentheses(String molt) {
 		
@@ -231,10 +231,10 @@ public class ParseFunction {
 		
 	}	
 
-	/**
+	*//**
 	 * @param molt
 	 * @return
-	 */
+	 *//*
 	private String simplifyPowers(String molt) {
 		
 		
@@ -281,10 +281,10 @@ public class ParseFunction {
 		return molt;
 	}
 
-	/**
+	*//**
 	 * @param molt
 	 * @return
-	 */
+	 *//*
 	
 	private double calculateArgument(String molt) {
 		
@@ -337,12 +337,12 @@ public class ParseFunction {
 
 
 
-	/**
+	*//**
 	 * @param result
 	 * @param signum
 	 * @param partial
 	 * @return
-	 */
+	 *//*
 	private double addValue(double result, char signum, double partial) {
 		
 		
@@ -373,3 +373,4 @@ public class ParseFunction {
 
 
 }
+*/

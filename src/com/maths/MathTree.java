@@ -26,24 +26,6 @@ public class MathTree {
 	public String[] FUNCTIONS={"","SQRT","SIN","COS","TAN","EXP","LOG","LN","ABS","ASIN","ACOS","ATAN","SINH","COSH","TANH"};
 
 
-	public static void main(String[] args) {
-
-		MathTree te=new MathTree();
-
-		//String words="(x+((y+z)+k)";
-		String words="-(-3+5)^2";
-		//words="2*(2+3*(1.0+1))+(5+6*(1-2/(1+1)))-1";
-		//String words="2*3-4*1/5";
-
-		te.buildStringTree(words);
-		te.printTree();
-		double sum=te.evaluate(2,1);
-
-		System.out.println(sum);
-	}
-
-
-
 	public MathTree() {
 		super();
 	}
@@ -227,11 +209,13 @@ public class MathTree {
 
 	}
 
+	/*
 	public void printTree() {
 
 		//root.printTree();
 		printBranchesWithLabel(root);
 	}
+	*/
 
 	public void buildStringTree(String words) {
 
@@ -437,7 +421,7 @@ public class MathTree {
 		return tokens;
 
 	}
-
+/*
 	public void printBranchesWithLabel(TNode root) {
 
 		if(root.getChildCount()==0)
@@ -475,6 +459,7 @@ public class MathTree {
 		}
 
 	}
+	*/
 
 	public static String formatVal(double numb){
 		
