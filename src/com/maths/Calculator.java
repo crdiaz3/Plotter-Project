@@ -22,7 +22,7 @@ public class Calculator extends Renderer3D{
     double dx=0;
 	double dx1=0;
 	double dx0=0;
-    //double deltax=0.01;//scala :quanto vale un intervallo sull'asse x
+    //double deltax=0.01;//scala :quanto vale un intervallo sull'asse x// scale: how much is an interval on the x axis
 
 
 	public double alfa=Math.PI/4;
@@ -58,7 +58,7 @@ public class Calculator extends Renderer3D{
 	
 	public double[][] getFunction(){
 		
-		dx=(b-a)/(n-1);//incremento d'intervallo
+		dx=(b-a)/(n-1);//incremento d'intervallo//increase interval
 		
 		double[][] ret_fun = new double[n][2];
 		
@@ -103,7 +103,7 @@ public class Calculator extends Renderer3D{
 	 */
 	public void draw(Graphics2D graphics2D, int i, int j) {
 		
-		dx=(b-a)/(n-1);//incremento d'intervallo
+		dx=(b-a)/(n-1);//incremento d'intervallo//increase interval
 		mathTree=new MathTree(DISPLAYED_FUNCTION.substring(0));
 		if(recalculate)
 		 fun=calculateFunction();
@@ -261,7 +261,7 @@ public class Calculator extends Renderer3D{
 	 */
 	public void drawPolar(Graphics2D graphics2D, int i, int j) {
 		
-		dx=(b-a)/(n-1);//incremento d'intervallo
+		dx=(b-a)/(n-1);//incremento d'intervallo//increase interval
 		mathTree=new MathTree(DISPLAYED_FUNCTION.substring(0));
 		if(recalculate)
 			 fun=calculateFunction();
@@ -286,7 +286,7 @@ public class Calculator extends Renderer3D{
 	
 	public void drawDerivative(Graphics2D graphics2D, int i, int j) {
 		
-		dx=(b-a)/n;//incremento d'intervallo
+		dx=(b-a)/n;//incremento d'intervallo//increase interval
 		mathTree=new MathTree(DISPLAYED_FUNCTION.substring(0));
 		
 		if(recalculate)
@@ -396,61 +396,45 @@ public class Calculator extends Renderer3D{
 	
 
 	/**
-	 * This is the funcion diplayed
+	 * This is the function displayed
 	 * @param x
 	 * @return
 	 */
 	public String DISPLAYED_FUNCTION="sin(x)";
 	
 	
-	public double f(double x) {
-		
-		
-		
+	public double f(double x)
+	{
 		String sx=MathTree.formatVal(x);
-		
-				  
-		
 		
 		/*sfunction=sfunction.replaceAll("exp","esp");
 		sfunction=sfunction.replaceAll("x",sx);
 		sfunction=sfunction.replaceAll("teta",sx);
 		sfunction=sfunction.replaceAll("esp","exp");*/
 		
-		
-		
 		double val=0;
 		
 		val=mathTree.evaluate(x, 0);
-		
-		
 
 		return val;
 		
 		//return (Math.sin(x));
 	}
 	
-		public double f(double x,double y) {
-		
-		
-		
+	public double f(double x,double y)
+	{
 		String sx=MathTree.formatVal(x);
 		String sy=MathTree.formatVal(y);
 				  
-		
 		/*sfunction=sfunction.replaceAll("exp","esp");
 		sfunction=sfunction.replaceAll("x",sx);
 		sfunction=sfunction.replaceAll("y",sy);
 		sfunction=sfunction.replaceAll("esp","exp");*/
 		
-		
-		
 		double val=0;
 		
 		val=mathTree.evaluate(x, y);
 		
-		
-
 		return val;
 		
 		//return (Math.sin(x));
@@ -465,12 +449,10 @@ public class Calculator extends Renderer3D{
 		if(signum>0)
 		{
 		 deltax*=0.5;
-		 System.out.println("deltax = " + deltax);
 		} 
 		else if(signum < 0)
 		{
 		 deltax/=0.5;
-		 System.out.println("deltax = " + deltax);
 		}
 		else
 		{
