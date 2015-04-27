@@ -67,11 +67,13 @@ public class Point3D {
 		// TODO Auto-generated constructor stub
 	}
 	
+	/*
 	public boolean equals(Point3D p){
 		
 		return this.x==p.x && this.y==p.y && this.z==p.z;
 		
 	}
+	*/
 
 	public Point3D clone()  {
 
@@ -82,16 +84,20 @@ public class Point3D {
 	}
 	
 
-	
+	/*
 	public boolean isSelected() {
 		return isSelected;
 	}
+	*/
 
 
+	/*
 	public void setSelected(boolean isSelected) {
 		this.isSelected = isSelected;
 	}
+	*/
 
+	/*
 	public static double calculateCosin(Point3D a, Point3D b) {
 
 		double prod=-(calculateSquareNorm(b.substract(a))-calculateSquareNorm(a)-calculateSquareNorm(b))
@@ -101,6 +107,7 @@ public class Point3D {
 		//System.out.println(a.x+" "+a.y+" "+a.z);
 		return prod;
 	}
+	*/
 
 	public static double calculateDotProduct(Point3D a,
 			Point3D b) {
@@ -120,30 +127,38 @@ public class Point3D {
 		
 	}
 
+	/*
 	private static double calculateSquareNorm(Point3D a) {
 
 		return calculateDotProduct(a,a);
 	}
+	*/
 
+	/*
 	public static double distance(Point3D a,Point3D b){
 
 
 		return calculateNorm(a.substract(b));
 	}
+	*/
 
 
+	/*
 	public static double distance(double x1,double y1,double z1,double x2,double y2,double z2){
 
 
 		return distance(new Point3D (x1,y1,z1),new Point3D (x2,y2,z2));
 	}
+	*/
 
 
+	/*
 	public static Point3D calculateOrthogonal(Point3D a){
 		Point3D orth=new Point3D(-a.y,a.x,0);
 
 		return orth;
 	}
+	*/
 
 	public Point3D calculateVersor(){
 
@@ -175,6 +190,7 @@ public class Point3D {
 		return pRes;
 	}
 	
+	/*
 	public Point3D minus(Point3D p0) {
 
 		this.x=this.x-p0.x;
@@ -184,14 +200,18 @@ public class Point3D {
 		return this;
 		
 	}
+	*/
 
+	/*
 	public Point3D sum(Point3D p0) {
 
 		Point3D pRes=new Point3D(this.x+p0.x,this.y+p0.y,this.z+p0.z);
 
 		return pRes;
 	}
+	*/
 	
+	/*
 	public Point3D multiply(Double factor) {
 
 		
@@ -199,40 +219,55 @@ public class Point3D {
 
 		return pRes;
 	}
+	*/
 	
+	/*
 	public double getX() {
 		return x;
 	}
+	*/
 
+	/*
 	public void setX(double x) {
 		this.x = x;
 	}
+	*/
 
+	/*
 	public double getY() {
 		return y;
 	}
+	*/
 
+	/*
 	public void setY(double y) {
 		this.y = y;
 	}
+	*/
 
+	/*
 	public double getZ() {
 		return z;
 	}
+	*/
 
+	/*
 	public void setZ(double z) {
 		this.z = z;
 	}
+	*/
 
-
+	/*
 	public double getP_z() {
 		return p_z;
 	}
+	*/
 
-
+	/*
 	public void setP_z(double p_z) {
 		this.p_z = p_z;
 	}
+	*/
 
 	public static double foundXIntersection(Point3D p1, Point3D p2,
 			double y) {
@@ -256,6 +291,7 @@ public class Point3D {
 
 	}
 
+	/*
 	public static double foundZIntersection(Point3D p1, Point3D p2,
 			double y) {
 
@@ -266,8 +302,9 @@ public class Point3D {
 
 
 	}
+	*/
 
-	
+	/*
 	public static Point3D foundPX_PY_PZ_Intersection(Point3D pstart, Point3D pend,
 			double y) {
 		
@@ -287,8 +324,9 @@ public class Point3D {
 		return intersect;
 
 	}
+	*/
 	
-	
+	/*
 	public static Point3D foundPX_PY_PZ_TEXTURE_Intersection(Point3D pstart, Point3D pend,
 			double y) {
 		
@@ -311,7 +349,9 @@ public class Point3D {
 		return intersect;
 
 	}
-	
+	*/
+
+	/*
 	public static double foundPXIntersection(Point3D pstart, Point3D pend,
 			double y) {
 
@@ -325,7 +365,9 @@ public class Point3D {
 		return ((1-l)*pstart.p_x*i_pstart_p_y+l*pend.p_x*i_end_p_y)*yi;
 
 	}
+	*/
 
+	/*
 	public static double foundPYIntersection(Point3D pstart, Point3D pend,
 			double y) {
 
@@ -339,7 +381,9 @@ public class Point3D {
 		
 
 	}
+	*/
 
+	/*
 	public static double foundPZIntersection(Point3D pstart, Point3D pend,
 			double y) {
 
@@ -354,6 +398,7 @@ public class Point3D {
 
 
 	}
+	*/
 
 /**
  * I can only make assumptions about this, but I am pretty confident in these
@@ -366,6 +411,7 @@ public class Point3D {
  * @param cos	the calculated cosine of theta
  * @param sin	the calculated sine of theta
  */
+	/*
 	public void rotate(double x0, double y0,double cos, double sin ) {
 		
 		double xx=this.x;
@@ -375,7 +421,9 @@ public class Point3D {
 		this.x=x0+(xx-x0)*cos-(yy-y0)*sin;
 		this.y=y0+(yy-y0)*cos+(xx-x0)*sin;
 	}
+	*/
 
+	/*
     public Point3D buildTranslatedPoint(double dx,double dy,double dz){
     	
     	Point3D p=new Point3D();
@@ -385,8 +433,9 @@ public class Point3D {
     	
     	return p;
     }
+    */
 
-
+	/*
 	public void translate(double dx, double dy, double dz) {
 		
 		setX(this.getX()+dx);
@@ -394,24 +443,31 @@ public class Point3D {
     	setZ(this.getZ()+dz);
 		
 	}
+	*/
 	
+	/*
 	public void setTexurePositions(double textureX, double textureY){
 		
 		texture_x = textureX;
 		texture_y = textureY;
 	}
+	*/
 
+	/*
 	public void setTexurePositions(Point3D p){
 		
 		texture_x = p.x;
 		texture_y = p.y;
 	}
+	*/
 	
 
+	/*
 	public String toString() {
 
 		return x+" "+y+" "+z;
 	}
+	*/
 
 	public Point3D getNormal() {
 		return normal;
