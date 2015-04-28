@@ -125,6 +125,11 @@ public class Calculator extends Renderer3D{
 		 fun=calculateFunction();
 		plotFunction(fun,graphics2D,  i,  j);
 		
+		mathTree=new MathTree(DISPLAYED_FUNCTION2.substring(0));
+		if(recalculate)
+		 fun=calculateFunction();
+		plotFunction(fun,graphics2D,  i,  j);
+		
 	}
 	
 	public void draw3D(BufferedImage buf) {
@@ -417,6 +422,7 @@ public class Calculator extends Renderer3D{
 	 * @return
 	 */
 	public String DISPLAYED_FUNCTION="sin(x)";
+	public String DISPLAYED_FUNCTION2="sin(x)+1";
 	
 	
 	public double f(double x)

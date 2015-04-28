@@ -65,11 +65,12 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 	private Calculator calc;
 	
 	public static int BUTTOMBORDER=120;
-	public static int UPBORDER=40;
+	public static int UPBORDER=60;
 	public static int LEFTBORDER=0;
 	public static int RIGHTBORDER=150;
 	private JPanel right;
 	public JTextField displayedFunction;
+	public JTextField displayedFunction2;
 	public JTextField displayedA;
 	public JTextField displayedB;
 	private JPanel up;
@@ -199,9 +200,9 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 		jmt1.addActionListener(this);
 		jmt2=new JMenuItem("Draw");
 		jmt2.addActionListener(this);
-		jmt3=new JMenuItem("Integral");
+		jmt3=new JMenuItem("Integral (y1)");
 		jmt3.addActionListener(this);
-		jmt4=new JMenuItem("Show DF");
+		jmt4=new JMenuItem("Show DF (y1)");
 		jmt4.addActionListener(this);
 		jm.add(jmt2);
 		
@@ -315,12 +316,16 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 		//moved draw button
 		draw=new JButton("Draw");//changed from <html><body><u>D</u>raw</body</html>
 		draw.addActionListener(this);
-		draw.setBounds(540,5,100,20);
+		draw.setBounds(550,30,100,20);
 		up.add(draw);
 		
-		JLabel flabel = new JLabel("Displayed function: y=");
+		JLabel flabel = new JLabel("Displayed function: y1=");
 		flabel.setBounds(5,5,130,20);
 		up.add(flabel);
+		
+		JLabel flabel2 = new JLabel("Displayed function: y2=");
+		flabel2.setBounds(5,30,130,20);
+		up.add(flabel2);
 		
 		displayedFunction=new FunctionTextField();
 		displayedFunction.addKeyListener(this);
@@ -331,6 +336,14 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 		up.add(displayedFunction);
 		displayedFunction.setText(calc.DISPLAYED_FUNCTION);
 		
+		displayedFunction2=new FunctionTextField();
+		displayedFunction2.addKeyListener(this);
+
+		displayedFunction2.setBounds(140,30,400,20);//changed from 400
+		displayedFunction2.addFocusListener(this);
+		
+		up.add(displayedFunction2);
+		displayedFunction2.setText(calc.DISPLAYED_FUNCTION2);
 		
 		
 	}
@@ -498,13 +511,13 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 		displayedB.setBounds(35,120,70,20);
 		right.add(displayedB);
 		
-		calculateIntegral=new JButton("Integral");
-		calculateIntegral.setBounds(5,150,100,20);
+		calculateIntegral=new JButton("Integral (y1)");
+		calculateIntegral.setBounds(5,150,120,20);
 		calculateIntegral.addActionListener(this);
 		right.add(calculateIntegral);
 		
-		displayDerivative=new JButton("Show DF");
-		displayDerivative.setBounds(5,180,100,20);
+		displayDerivative=new JButton("Show DF (y1)");
+		displayDerivative.setBounds(5,180,120,20);
 		displayDerivative.addActionListener(this);
 		right.add(displayDerivative);
 		
@@ -633,6 +646,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 		}
 		
 		calc.DISPLAYED_FUNCTION=displayedFunction.getText();
+		calc.DISPLAYED_FUNCTION2=displayedFunction2.getText();
 		draw.requestFocus(true);
 	}
 
@@ -753,6 +767,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 			calc.setY0(250);
 			calc.setX0(350);//changed from 50
 			displayedFunction.setText(calc.DISPLAYED_FUNCTION);
+			displayedFunction2.setText(calc.DISPLAYED_FUNCTION2);
 			remove(up);
 			remove(right);
 			buildUpPanel();
