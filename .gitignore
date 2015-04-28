@@ -61,3 +61,6 @@ hs_err_pid*
 
 # Temporary files
 *~
+
+# Properties file
+mathgraphics.properties
