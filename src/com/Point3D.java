@@ -67,13 +67,11 @@ public class Point3D {
 		
 	}
 	
-	/*
 	public boolean equals(Point3D p){
 		
 		return this.x==p.x && this.y==p.y && this.z==p.z;
 		
 	}
-	*/
 
 	public Point3D clone()  {
 
@@ -444,12 +442,10 @@ public class Point3D {
 	*/
 	
 
-	/*
 	public String toString() {
 
 		return x+" "+y+" "+z;
 	}
-	*/
 
 	public Point3D getNormal() {
 		return normal;

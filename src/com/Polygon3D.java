@@ -106,11 +106,9 @@ public class Polygon3D extends Polygon{
 	*/
 
 
-	/*
 	public Polygon3D() {
 
 	}
-	*/
 	
 	public static Polygon3D[] divideIntoTriangles(Polygon3D pol){
 		

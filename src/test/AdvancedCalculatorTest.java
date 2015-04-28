@@ -1,4 +1,4 @@
-/*package test;
+package test;
 
 import static org.junit.Assert.*;
 
@@ -8,8 +8,14 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import com.maths.AdvancedCalculator;
+import com.maths.Calculator;
+
 public class AdvancedCalculatorTest {
 
+	//AdvancedCalculator advcalc;
+	Calculator calc;
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -20,6 +26,7 @@ public class AdvancedCalculatorTest {
 
 	@Before
 	public void setUp() throws Exception {
+		calc = new Calculator(10,10,"x^2");
 	}
 
 	@After
@@ -28,23 +35,30 @@ public class AdvancedCalculatorTest {
 
 	@Test
 	public void testDf() {
-		fail("Not yet implemented");
+		//fail("Not yet implemented");
+		double df = AdvancedCalculator.df(Math.PI, calc);
+		assertEquals(2*Math.PI,df,0.000000009);
 	}
 
 	@Test
 	public void testSimpsonIntegral() {
-		fail("Not yet implemented");
+		calc = new Calculator(10,10,"1");
+		double integral = AdvancedCalculator.SimpsonIntegral(calc);
+		assertEquals(2*Math.PI,integral,0.09);
 	}
 
 	@Test
 	public void testTrapeziumIntegral() {
-		fail("Not yet implemented");
+		calc = new Calculator(10,10,"1");
+		double integral = AdvancedCalculator.trapeziumIntegral(calc);
+		assertEquals(2*Math.PI,integral,0.09);
 	}
 
 	@Test
 	public void testGaussIntegral() {
-		fail("Not yet implemented");
+		calc = new Calculator(10,10,"1");
+		double integral = AdvancedCalculator.gaussIntegral(calc);
+		assertEquals(2*Math.PI,integral,0.09);
 	}
 
 }
-*/

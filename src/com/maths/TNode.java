@@ -116,7 +116,6 @@ public class TNode {
 	}
 	*/
 	
-	/*
 	public String toString(){
 		
 		if(value==null)
@@ -124,7 +123,6 @@ public class TNode {
 		
 		return value.toString();
 	}
-	*/
 
 	/*
 	public void print() {

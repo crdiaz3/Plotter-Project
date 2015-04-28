@@ -56,6 +56,22 @@ public class Calculator extends Renderer3D{
 		init( WIDTH, HEIGHT);
 	}
 	
+	/**
+	 * USED ONLY FOR TESTING
+	 * @param WIDTH
+	 * @param HEIGHT
+	 * @param function
+	 */
+	public Calculator(int WIDTH, int HEIGHT, String function) {
+		
+		super();
+		deltax=10.0/Visualizer.WIDTH;
+	    deltay=deltax;
+	    deltaz=deltax;
+		init( WIDTH, HEIGHT);
+		mathTree = new MathTree(function);
+	}
+	
 	public double[][] getFunction(){
 		
 		dx=(b-a)/(n-1);//incremento d'intervallo//increase interval
