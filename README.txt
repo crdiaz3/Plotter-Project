@@ -5,34 +5,19 @@ by Behr Barnette, Chris Diaz, and Jacob Gersztyn
 
 TABLE OF CONTENTS
 -----------------
-1. Getting Started
-2. Installation
-3. Configuration
-4. Usage
-5. Errors
-6. Contact
+1. Usage
+2. Configuration
+3. Errors
 
 
-1. GETTING STARTED
-------------------
-
-
-2. INSTALLATION
+1. USAGE
 ---------------
+This Plotter program is a simple graphing utility with some additional calculus abilities.  
 
-
-3. CONFIGURATION
+2. CONFIGURATION
 ----------------
 
 
-4. USAGE
---------
-
-
-5. ERRORS
+3. ERRORS
 ---------
-
-
-6. CONTACT
-----------
 
