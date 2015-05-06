@@ -1,6 +1,7 @@
 package com.main;
 
 import java.awt.Color;
+import java.awt.Font;
 //import java.awt.Container;	//commented out useless import
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -17,8 +18,11 @@ import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Properties;
 
 import javax.imageio.ImageIO;
@@ -31,6 +35,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.RepaintManager;
 import javax.swing.event.MenuEvent;
@@ -88,6 +94,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 	private JMenuItem jmt3;
 	private JMenuItem jmt2;
 	private JMenuItem jmt4;
+	private JMenuItem jmt5;
 	private JMenu jm;
 	private boolean redrawAfterMenu=false;
 	private JMenu jm2;
@@ -109,6 +116,11 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 	private File currentDirectory=null;
 	private BufferedImage buf=null;
 	private JMenuItem jmt42;
+	private JMenu jm5;
+	private JMenuItem jmt51;
+	
+	private JFrame readMeFrame;
+	private JTextArea textArea;
 	
 	
 	public Visualizer(){
@@ -117,6 +129,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 		
 		center=new JPanel();	
 		center.addMouseWheelListener(this);
+		center.addKeyListener(this);
 		
 		setLocation(20,20);
 		setTitle(VERSION);
@@ -245,6 +258,14 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 		jm4.add(jmt42);
 		
 		jmb.add(jm4);
+		
+		jm5=new JMenu("Help");
+		jm5.addMenuListener(this);
+		jmt51=new JMenuItem("README");
+		jmt51.addActionListener(this);
+		jm5.add(jmt51);
+		
+		jmb.add(jm5);
 		
 		setJMenuBar(jmb);
 		
@@ -422,7 +443,6 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 			right=new JPanel();
 			right.setLayout(null);
 			right.setBounds(LEFTBORDER+WIDTH,UPBORDER,RIGHTBORDER,HEIGHT);
-				
 			
 			JLabel rlabel = new JLabel("Coord. ranges:");
 			rlabel.setBounds(5,60,100,20);
@@ -484,7 +504,6 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 		right=new JPanel();
 		right.setLayout(null);
 		right.setBounds(LEFTBORDER+WIDTH,UPBORDER,RIGHTBORDER,HEIGHT);
-			
 		
 		JLabel rlabel = new JLabel("Displayed range:");
 		rlabel.setBounds(5,60,100,20);
@@ -496,7 +515,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 		
 		displayedA=new DigitTextField();
 		displayedA.addKeyListener(this);
-
+		
 		displayedA.setBounds(35,90,70,20);
 		right.add(displayedA);
 		
@@ -534,8 +553,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 			right=new JPanel();
 			right.setLayout(null);
 			right.setBounds(LEFTBORDER+WIDTH,UPBORDER,RIGHTBORDER,HEIGHT);
-			
-		
+					
 			JLabel rlabel = new JLabel("Diplayed range:");
 			rlabel.setBounds(5,60,100,20);
 			right.add(rlabel);
@@ -546,7 +564,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 			
 			displayedA=new DigitTextField();
 			displayedA.addKeyListener(this);
-
+			
 			displayedA.setBounds(50,90,60,20);
 			right.add(displayedA);
 		
@@ -821,6 +839,11 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 			exportData();
 		}
 		
+		else if(o==jmt51){
+			
+			displayReadMe();
+		}
+		
 	}
 	
 	private void reset()
@@ -905,7 +928,41 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 		}
 	}
 
+	private void displayReadMe(){
+		
+		constructReadMeFrame();
+		
+		readFile();
+	}
+	
+	private void readFile(){
+		BufferedReader in;
+		
+		try{
+			in = new BufferedReader(new FileReader("README.txt"));
+			textArea.read(in,null);
+		
+			in.close();
+		} catch(IOException e){	
+			e.printStackTrace();
+		}
 
+	}
+	
+	private void constructReadMeFrame(){
+		Font font = new Font("Segoe UI", Font.PLAIN, 15);
+		
+		readMeFrame = new JFrame("README");
+		textArea = new JTextArea();
+		JScrollPane scrollPane = new JScrollPane(textArea);
+		textArea.setBackground(BACKGROUND_COLOR);
+		textArea.setForeground(LINE_COLOR);
+		textArea.setFont(font);
+		readMeFrame.add(scrollPane);
+		readMeFrame.setSize(600,400);
+		readMeFrame.setVisible(true);
+	}
+	
 	private void exportData() {
 		
 		Object fun=null;
@@ -1089,28 +1146,30 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 
 	
 	public void keyTyped(KeyEvent arg0) {
-	
-		
+		int code =arg0.getKeyCode();
+		if(code==KeyEvent.VK_ENTER)//changed from D
+			draw();
+		/*
+		else if(code==KeyEvent.VK_RIGHT)//deleted obsolete method
+			left(-1);
+		else if(code==KeyEvent.VK_UP)
+			up(-1);
+		else if(code==KeyEvent.VK_DOWN)
+			up(+1);
+		else if(code==KeyEvent.VK_LEFT)//deleted obsolete method
+			left(+1);
+		else if(code==KeyEvent.VK_PLUS && !displayedFunction.hasFocus())//this zoom no work yet
+			zoom(1);//changed to 1 from -1
+		else if(code==KeyEvent.VK_MINUS && !displayedFunction.hasFocus())
+			zoom(-1);//changed to -1 from 1; fixed zoom
+		*/
 	}
 	
 
 	public void keyPressed(KeyEvent arg0) {
 		int code =arg0.getKeyCode();
-		if(code==KeyEvent.VK_LEFT)//deleted obsolete method
-			left(+1);
-		else if(code==KeyEvent.VK_RIGHT)//deleted obsolete method
-			left(-1);
-		else if(code==KeyEvent.VK_UP)
-							up(-1);
-		else if(code==KeyEvent.VK_DOWN)
-							up(+1);
-		else if(code==KeyEvent.VK_ENTER)//changed from D
-								draw();
-		else if(code==KeyEvent.VK_PLUS && !displayedFunction.hasFocus())//this zoom no work yet
-								zoom(1);//changed to 1 from -1
-		else if(code==KeyEvent.VK_MINUS && !displayedFunction.hasFocus())
-								zoom(-1);//changed to -1 from 1; fixed zoom
-		
+		if(code==KeyEvent.VK_ENTER)//changed from D
+			draw();
 	}
 
 
