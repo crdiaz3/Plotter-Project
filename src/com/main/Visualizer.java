@@ -87,6 +87,8 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 	public static Color AXIS_COLOR=Color.BLACK;
 	public static Color BACKGROUND_COLOR=new Color(	255,236,139);
 	public static Color PANEL_COLOR=new Color(	205,190,112);
+	public static Color README_BGCOLOR=new Color(0,0,0);
+	public static Color README_TCOLOR=new Color(0,255,255);
 	private JButton displayDerivative;
 	public static boolean isDerivativeDisplay;
 	private JMenuBar jmb;
@@ -955,8 +957,8 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 		readMeFrame = new JFrame("README");
 		textArea = new JTextArea();
 		JScrollPane scrollPane = new JScrollPane(textArea);
-		textArea.setBackground(BACKGROUND_COLOR);
-		textArea.setForeground(LINE_COLOR);
+		textArea.setBackground(README_BGCOLOR);
+		textArea.setForeground(README_TCOLOR);
 		textArea.setFont(font);
 		readMeFrame.add(scrollPane);
 		readMeFrame.setSize(600,400);
