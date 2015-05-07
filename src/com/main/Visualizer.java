@@ -894,7 +894,8 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 		}
 	}
 
-	private void saveImage() {
+	/*private void saveImage()
+	{
 		
 		
 		fc.setDialogType(JFileChooser.SAVE_DIALOG);
@@ -912,9 +913,10 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 		} 
 		
 		
-	}
+	}*/
 	
-	private void saveImage(File file) {
+	private void saveImage()//removed File file
+	{
 		
 		//drawFace();
 		BufferedImage buf=new BufferedImage(WIDTH,HEIGHT,BufferedImage.TYPE_INT_RGB);
@@ -922,7 +924,10 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 		try {
 			Graphics2D bufGraphics=(Graphics2D)buf.getGraphics();
 			draw(bufGraphics);
-			ImageIO.write(buf,"screen.jpg",file);//changed from jpg
+			
+			File file = new File("screenshot.jpg");//added this
+			
+			ImageIO.write(buf,"jpg",file);//changed from jpg
 			
 		} catch (Exception e) {
 			
