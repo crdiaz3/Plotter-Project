@@ -1139,7 +1139,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 	}
 
 	/**
-	 * @param width The wIDTH to set.
+	 * @param width The Width to set.
 	 */
 	public void setWIDTH(int width) {
 		WIDTH = width;
@@ -1151,7 +1151,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 		int code =arg0.getKeyCode();
 		if(code==KeyEvent.VK_ENTER)//changed from D
 			draw();
-		/*
+		
 		else if(code==KeyEvent.VK_RIGHT)//deleted obsolete method
 			left(-1);
 		else if(code==KeyEvent.VK_UP)
@@ -1164,7 +1164,7 @@ public class Visualizer extends JFrame implements ActionListener,KeyListener,
 			zoom(1);//changed to 1 from -1
 		else if(code==KeyEvent.VK_MINUS && !displayedFunction.hasFocus())
 			zoom(-1);//changed to -1 from 1; fixed zoom
-		*/
+		
 	}
 	
 
